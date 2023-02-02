@@ -1,0 +1,188 @@
+body {
+    font-family: 'AdorshoLipi', Arial, sans-serif !important;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+.font-md {
+    font-size: 1.1rem;
+}
+.font-lg {
+    font-size: 1.4rem;
+}
+main {
+    min-height: 75vh;
+}
+#payment {
+    min-height: 75vh;
+}
+
+#leftnav{
+    border:1px solid #dee2e6 !important;
+}
+#leftnav li{
+    width: 100%;
+    background:#fff;
+    cursor: pointer;
+    transition: 0.5s ease;
+    border-bottom: 1px solid #dee2e6;
+}
+#leftnav li a{
+    display: block;
+    padding: 10px 10px;
+    text-decoration: none;
+    color:#000;
+}
+#leftnav li:hover{
+    background: #148496;
+}
+#logout:hover a{
+    background: #dc3545;
+}
+#leftnav li:hover a{
+    color: #fff;
+}
+.leftnav-active {
+    background: #148496 !important;
+}
+.leftnav-active a {
+    color: #ffffff !important;
+}
+.input-label {
+    white-space: nowrap;
+    padding: 0.375rem 0.75rem;
+    line-height: 1.5;
+}
+.select-none {
+    user-select: none !important;
+}
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+#registerForm{
+	display: grid;
+	grid-template-columns: auto;
+	justify-content: center;
+	align-items: center;
+}
+#registerForm input{
+	border:1px solid #ced4da;
+	border-radius:3px; 
+	width: 350px;
+}
+/* mobile nav */
+#mobilenavcontainer button{
+	display: none;
+}
+#mobilenavcontainer{
+    background: hsl(0, 0%, 99%);
+}
+#mobilenavcontainer button{
+	width: 100%;
+}
+#mobilenavitem li a {
+    display: block;
+    padding: 10px 10px;
+    text-decoration: none;
+    color: #000;
+    transition: 0.3s all;
+}
+#mobilenavitem li{
+	border-bottom: 1px solid rgba(0,0,0,.1);
+}
+#mobilenavitem li:hover a{
+	background: #17a2b8;
+	color:#fff;
+}
+/* end of mobile nav */
+
+#apply-button .btn {
+    white-space: normal !important;
+}
+.header-logo{
+    height: 50px;
+}
+.nstu-logo {
+    height: 100px;
+}
+#stuimg{
+    width:92%;
+}
+@media only screen and (max-width:576px){
+    html {
+        font-size: 70% !important;
+    }
+    #registerForm input{
+        width: 100%;
+    }
+    #registerForm a{
+    	margin-bottom:5px;
+    }
+    #leftnav{
+        display: none;
+    }
+    #mobilenavcontainer button{
+     display: flex;
+     justify-content: space-between;
+     }
+     #dwnldprs{
+         font-size: 75%;
+     }
+     #nstutitle{
+         font-size: 90%;
+     }
+     #nstutitleeng{
+         font-size: 70%;
+     }
+     #locationnstu{
+         font-size: 70%;
+     }
+     .header-logo{
+        height: 40px;
+    }
+    #stuimg{
+    width:100%;
+    height:100%;
+}
+}
+@media only screen and (min-width:768px) {
+    .w-md-75 {
+        width: 75% !important;
+    }
+    .w-md-50 {
+        width: 50% !important;
+    }
+}
+@media only screen and (max-width:769px){
+    
+    html {
+        font-size: 80% !important;
+    }
+    .nstu-logo {
+        height: 70px;
+    }    
+    #stuimg{
+    width:60%;
+}
+}
+
+@media only screen and (max-width:992px){
+    html {
+        font-size: 90% !important;
+    }
+    .w-md-75 {
+        width: 75% !important;
+    }
+    #leftnav{
+        display: none;
+    }
+    #mobilenavcontainer button{
+     display: flex;
+     justify-content: space-between;
+    }
+}

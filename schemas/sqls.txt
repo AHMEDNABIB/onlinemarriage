@@ -1,0 +1,49 @@
+#Data Migration 
+INSERT INTO admit_applications(gst_app_id, gst_unit, a_unit, b_unit, c_unit, sub_choice, quota) SELECT gst_app_id,gst_unit,a_unit,b_unit,c_unit,sub_choice,quota FROM applications WHERE pay_status='paid';
+
+UPDATE admit_applications JOIN students_info ON admit_applications.gst_app_id=students_info.gst_app_id SET admit_applications.gst_roll=students_info.gst_roll;
+
+UPDATE admit_applications JOIN a_unit_scores ON admit_applications.gst_app_id=a_unit_scores.gst_app_id SET admit_applications.merit=a_unit_scores.merit, admit_applications.total_mark=a_unit_scores.total, admit_applications.ffq_merit=a_unit_scores.ffq_merit, admit_applications.tq_merit=a_unit_scores.tq_merit, admit_applications.cpq_merit=a_unit_scores.cpq_merit, admit_applications.pdq_merit=a_unit_scores.pdq_merit, admit_applications.hq_merit=a_unit_scores.hq_merit, admit_applications.wq_merit=a_unit_scores.wq_merit;
+
+UPDATE admit_applications JOIN b_unit_scores ON admit_applications.gst_app_id=b_unit_scores.gst_app_id SET admit_applications.merit=b_unit_scores.merit, admit_applications.total_mark=b_unit_scores.total, admit_applications.ffq_merit=b_unit_scores.ffq_merit, admit_applications.tq_merit=b_unit_scores.tq_merit, admit_applications.cpq_merit=b_unit_scores.cpq_merit, admit_applications.pdq_merit=b_unit_scores.pdq_merit, admit_applications.hq_merit=b_unit_scores.hq_merit, admit_applications.wq_merit=b_unit_scores.wq_merit;
+
+UPDATE admit_applications JOIN c_unit_scores ON admit_applications.gst_app_id=c_unit_scores.gst_app_id SET admit_applications.merit=c_unit_scores.merit, admit_applications.total_mark=c_unit_scores.total, admit_applications.ffq_merit=c_unit_scores.ffq_merit, admit_applications.tq_merit=c_unit_scores.tq_merit, admit_applications.cpq_merit=c_unit_scores.cpq_merit, admit_applications.pdq_merit=c_unit_scores.pdq_merit, admit_applications.hq_merit=c_unit_scores.hq_merit, admit_applications.wq_merit=c_unit_scores.wq_merit;
+
+
+#For GST Data
+SELECT admit_applications.gst_roll, CASE WHEN departments.ename is NULL THEN '' ELSE departments.ename END as department FROM admit_applications LEFT JOIN departments ON admit_applications.current_subject=departments.id ORDER BY admit_applications.gst_roll
+
+
+
+select total, gst_phy, gst_che, hsc_che, hsc_phy, ssc_phy, ssc_che, ssc_mat, hsc_eng, ssc_eng, hsc_ict, ssc_ict, hsc_ban, ssc_ban, hsc_gpa, ssc_gpa, pass_year, count(*) as NumDuplicates
+from a_unit_scores
+group by total, gst_phy, gst_che, hsc_che, hsc_phy, ssc_phy, ssc_che, ssc_mat, hsc_eng, ssc_eng, hsc_ict, ssc_ict, hsc_ban, ssc_ban, hsc_gpa, ssc_gpa, pass_year
+having NumDuplicates > 1  
+ORDER BY `NumDuplicates`  DESC
+
+select gst_phy, gst_che, hsc_che, hsc_phy, ssc_phy, ssc_che, ssc_mat, hsc_eng, ssc_eng, hsc_ict, ssc_ict, hsc_ban, ssc_ban, hsc_gpa, ssc_gpa, pass_year,gst_mat,gst_bio, count(*) as NumDuplicates
+from a_unit_scores
+group by gst_phy, gst_che, hsc_che, hsc_phy, ssc_phy, ssc_che, ssc_mat, hsc_eng, ssc_eng, hsc_ict, ssc_ict, hsc_ban, ssc_ban, hsc_gpa, ssc_gpa, pass_year, 
+	CASE 
+		WHEN gst_bio IS NULL THEN gst_mat
+        WHEN gst_mat IS NULL THEN gst_bio
+        ELSE
+        	CASE
+            	WHEN gst_mat>gst_bio THEN gst_mat
+                ELSE gst_bio
+            END
+     END
+having NumDuplicates > 1  
+ORDER BY `NumDuplicates`  DESC
+
+select total, gst_eng, gst_ban, gst_gk, hsc_eng, hsc_ban, ssc_eng, ssc_ban, ssc_mat, pass_year, count(*) as NumDuplicates
+from b_unit_scores
+group by total, gst_eng, gst_ban, gst_gk, hsc_eng, hsc_ban, ssc_eng, ssc_ban, ssc_mat, pass_year
+having NumDuplicates > 1  
+ORDER BY `NumDuplicates`  DESC
+
+select  total, gst_acc, gst_bom, gst_eng, gst_ban, hsc_acc, hsc_bom, hsc_eng, hsc_ban, ssc_acc, ssc_mat, ssc_eng, ssc_ban, pass_year, count(*) as NumDuplicates 
+from c_unit_scores 
+group by total, gst_acc, gst_bom, gst_eng, gst_ban, hsc_acc, hsc_bom, hsc_eng, hsc_ban, ssc_acc, ssc_mat, ssc_eng, ssc_ban, pass_year 
+having NumDuplicates > 1 ORDER BY `NumDuplicates` DESC
+
