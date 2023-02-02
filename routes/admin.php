@@ -86,12 +86,25 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/shop/restore/{id}', [ShopController::class, 'restore'])->name('shop.restore');
         Route::get('/shop/forceDelete/{id}', [ShopController::class, 'forceDelete'])->name('shop.forceDelete');
 
+        // Divorce
+
         // Route::get('/divorce/add', DivorceController::class, 'add')->name('divorce.add');
 
         //  Route::get('divorce/add', 'DivorceController@add');
+
         Route::get('divorce/add', [\App\Http\Controllers\Admin\DivorceController::class, 'add'])->name('divorce.add');
         Route::post('divorce/save', [\App\Http\Controllers\Admin\DivorceController::class, 'save'])->name('divorce.save');
         Route::resource('divorce', \App\Http\Controllers\Admin\DivorceController::class);
+
+
+          //   Remarriage
+          Route::post('marriage/permission', [\App\Http\Controllers\Admin\MarriageController::class, 'permission'])->name('marriage.permission');
+          Route::post('marriage/divorce', [\App\Http\Controllers\Admin\MarriageController::class, 'divorce'])->name('marriage.divorce');
+          Route::post('marriage/death', [\App\Http\Controllers\Admin\MarriageController::class, 'add'])->name('marriage.add');
+
+        // Marriage
+          Route::post('marriage/add', [\App\Http\Controllers\Admin\MarriageController::class, 'add'])->name('marriage.add');
+        Route::resource('marriage', \App\Http\Controllers\Admin\MarriageController::class);
        
       
 

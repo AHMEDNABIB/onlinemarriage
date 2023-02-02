@@ -24,6 +24,7 @@
                 <div class="menu-title">Dashboard</div>
             </a>
         </li>
+        
 
         {{-- admin --}}
         @if(admin()->roles == "super")
@@ -47,13 +48,56 @@
         </li>
         @endif
 
+        {{-- marriage --}}
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="lni lni-user"></i>
+                </div>
+                <div class="menu-title">Marriage</div>
+            </a>
+            <ul>
+                <li>
+                    <a href="{{ route('admin.marriage.create') }}" class="{{ request()->path() == 'admin/marriage/create' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>New Marriage</a>
+                </li>
+                
+                <li>
+                    <a href="{{ route('admin.marriage.index') }}" class="{{ request()->path() == 'admin/marriage/' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>All Marriage</a>
+                </li>
 
+
+                {{-- ReMarriage --}}
+
+                <li>
+            <a href="javascript:;" class="has-arrow">
+              
+                    <i class="bx bx-right-arrow-alt"> </i>
+                
+                Remarriage
+            </a>
+            <ul>
+                <li>
+                    <a href="{{ route('admin.marriage.add') }}" class="{{ request()->path() == 'admin/shop/add' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Permission Letter</a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.shop.index') }}" class="{{ request()->path() == 'admin/shop/index' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Divorce</a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.shop.index') }}" class="{{ request()->path() == 'admin/shop/index' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Death</a>
+                </li>
+                
+            </ul>
+        </li>
+
+
+               
+            </ul>
+        </li>
 
 
         {{-- divorce --}}
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bxs-user me-1 font-22 text-info"></i>
+                <div class="parent-icon"><i class="lni lni-user"></i>
                 </div>
                 <div class="menu-title">Divorce</div>
             </a>
@@ -70,8 +114,9 @@
                
             </ul>
         </li>
+
         {{-- shop --}}
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="fadeIn animated bx bx-shopping-bag"></i>
                 </div>
@@ -88,7 +133,7 @@
                     <a href="{{ route('admin.shop.trash_list') }}" class="{{ request()->path() == 'admin/shop/trash-list' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Trash</a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
 
 
