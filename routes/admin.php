@@ -98,8 +98,13 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 
           //   Remarriage
-          Route::post('marriage/permission', [\App\Http\Controllers\Admin\MarriageController::class, 'permission'])->name('marriage.permission');
+          Route::get('marriage/permission', [\App\Http\Controllers\Admin\MarriageController::class, 'permission'])->name('marriage.permission');
+
+          Route::post('marriage/permission', [\App\Http\Controllers\Admin\MarriageController::class, 'check_permission'])->name('marriage.permission');
+
+
           Route::post('marriage/divorce', [\App\Http\Controllers\Admin\MarriageController::class, 'divorce'])->name('marriage.divorce');
+
           Route::post('marriage/death', [\App\Http\Controllers\Admin\MarriageController::class, 'add'])->name('marriage.add');
 
         // Marriage

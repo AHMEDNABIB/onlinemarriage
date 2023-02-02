@@ -8,7 +8,30 @@ use App\Models\Marriage;
 use Toastr;
 
 class MarriageController extends Controller
-{
+{    
+    public function permission(){
+      return view('admin.marriage.remarriage.permission');
+    }
+
+    public function check_permission(Request $request){
+        $check_permission = $request->wife_permission_no;
+        
+        $wife_permission = Marriage::where('wife_permission_no',$check_permission)->first();
+
+        // dd($wife_permission);
+
+        if ( $wife_permission) {
+             Toastr::success('You can Register for New Marriage', 'Success!');
+            return view('admin.marriage.add');
+        } else {
+             Toastr::error('You are not eligible for New marriage ', 'Danger!');
+            // return view('admin.marriage.remarriage.permission');
+            return redirect()->back();
+        }
+        
+    }
+
+
     public function add(Request $request){
 
         $husband_nid = $request->husband_nid;

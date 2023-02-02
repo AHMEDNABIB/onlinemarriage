@@ -76,7 +76,7 @@
             </a>
             <ul>
                 <li>
-                    <a href="{{ route('admin.marriage.add') }}" class="{{ request()->path() == 'admin/shop/add' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Permission Letter</a>
+                    <a href="{{ route('admin.marriage.permission') }}" class="{{ request()->path() == 'admin/marriage/permission' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Permission Letter</a>
                 </li>
                 <li>
                     <a href="{{ route('admin.shop.index') }}" class="{{ request()->path() == 'admin/shop/index' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Divorce</a>
