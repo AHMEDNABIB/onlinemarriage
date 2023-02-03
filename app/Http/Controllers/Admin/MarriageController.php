@@ -9,6 +9,7 @@ use Toastr;
 
 class MarriageController extends Controller
 {    
+    // remarriage
     public function permission(){
       return view('admin.marriage.remarriage.permission');
     }
@@ -93,6 +94,10 @@ class MarriageController extends Controller
         }
         
     }
+
+    // end of remarriage
+
+    // new marriage
 
 
     public function add(Request $request){
