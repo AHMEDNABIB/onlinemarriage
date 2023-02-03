@@ -31,6 +31,28 @@ class MarriageController extends Controller
         
     }
 
+     public function divorce(){
+      return view('admin.marriage.remarriage.divorce');
+    }
+
+    public function check_divorce(Request $request){
+        $check_divorce = $request->divorce_no;
+        
+        $divorce = Marriage::where('divorce_no',$check_divorce)->first();
+
+        // dd($divorce);
+
+        if ( $divorce) {
+             Toastr::success('You can Register for New Marriage', 'Success!');
+            return view('admin.marriage.add');
+        } else {
+             Toastr::error('You are not eligible for New marriage ', 'Danger!');
+            // return view('admin.marriage.remarriage.permission');
+            return redirect()->back();
+        }
+        
+    }
+
 
     public function add(Request $request){
 

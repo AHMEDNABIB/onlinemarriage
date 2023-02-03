@@ -15,7 +15,7 @@
 									</div>
                                 @endif
 								<div class="border p-4 rounded">
-									<form action="{{ route('admin.marriage.add') }}" method="POST" enctype="multipart/form-data">
+									<form action="{{ route('admin.marriage.divorce') }}" method="POST" enctype="multipart/form-data">
                                      @csrf
 									<div class="card-title d-flex align-items-center">
 										<div><i class="bx bxs-user me-1 font-22 text-info"></i>
@@ -26,7 +26,7 @@
 									<div class="row mb-3">
 										<label for="inputEnterYourName" class="col-sm-4 col-form-label">Enter Divorce No</label>
 										<div class="col-sm-8">
-											<input type="text" name="death_no" class="form-control"  placeholder="Enter Your Divorce No">
+											<input type="text" name="divorce_no" class="form-control"  placeholder="Enter Your Divorce No">
 										</div>	
 									</div>
 									

@@ -88,9 +88,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
         // Divorce
 
-        // Route::get('/divorce/add', DivorceController::class, 'add')->name('divorce.add');
-
-        //  Route::get('divorce/add', 'DivorceController@add');
+        
 
         Route::get('divorce/add', [\App\Http\Controllers\Admin\DivorceController::class, 'add'])->name('divorce.add');
         Route::post('divorce/save', [\App\Http\Controllers\Admin\DivorceController::class, 'save'])->name('divorce.save');
@@ -103,9 +101,13 @@ Route::prefix('admin')->name('admin.')->group(function(){
           Route::post('marriage/permission', [\App\Http\Controllers\Admin\MarriageController::class, 'check_permission'])->name('marriage.permission');
 
 
-          Route::post('marriage/divorce', [\App\Http\Controllers\Admin\MarriageController::class, 'divorce'])->name('marriage.divorce');
+          Route::get('marriage/divorce', [\App\Http\Controllers\Admin\MarriageController::class, 'divorce'])->name('marriage.divorce');
+          Route::post('marriage/divorce', [\App\Http\Controllers\Admin\MarriageController::class, 'check_divorce'])->name('marriage.divorce');
 
-          Route::post('marriage/death', [\App\Http\Controllers\Admin\MarriageController::class, 'add'])->name('marriage.add');
+
+          Route::post('marriage/death', [\App\Http\Controllers\Admin\MarriageController::class, 'death'])->name('marriage.death');
+          Route::post('marriage/death', [\App\Http\Controllers\Admin\MarriageController::class, 'check_death'])->name('marriage.death');
+
 
         // Marriage
           Route::post('marriage/add', [\App\Http\Controllers\Admin\MarriageController::class, 'add'])->name('marriage.add');

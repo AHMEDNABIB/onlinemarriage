@@ -79,10 +79,10 @@
                     <a href="{{ route('admin.marriage.permission') }}" class="{{ request()->path() == 'admin/marriage/permission' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Permission Letter</a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.shop.index') }}" class="{{ request()->path() == 'admin/shop/index' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Divorce</a>
+                    <a href="{{ route('admin.marriage.divorce') }}" class="{{ request()->path() == 'admin/marriage/divorce' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Divorce</a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.shop.index') }}" class="{{ request()->path() == 'admin/shop/index' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Death</a>
+                    <a href="{{ route('admin.marriage.death') }}" class="{{ request()->path() == 'admin/marriage/death' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Death</a>
                 </li>
                 
             </ul>
