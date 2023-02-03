@@ -14,6 +14,12 @@ class MarriageController extends Controller
     }
 
     public function check_permission(Request $request){
+
+         $request->validate([
+            'wife_permission_no' => 'required',
+            
+        ]);
+
         $check_permission = $request->wife_permission_no;
         
         $wife_permission = Marriage::where('wife_permission_no',$check_permission)->first();
@@ -36,6 +42,11 @@ class MarriageController extends Controller
     }
 
     public function check_divorce(Request $request){
+
+         $request->validate([
+            'divorce_no' => 'required',
+            
+        ]);
         $check_divorce = $request->divorce_no;
         
         $divorce = Marriage::where('divorce_no',$check_divorce)->first();
@@ -54,7 +65,43 @@ class MarriageController extends Controller
     }
 
 
+      public function death(){
+      return view('admin.marriage.remarriage.death');
+    
+    }
+
+    public function check_death(Request $request){
+
+        $request->validate([
+            'death_no' => 'required',
+            
+        ]);
+
+        $check_death = $request->death_no;
+        
+        $death = Marriage::where('death_no',$check_death)->first();
+
+       
+
+        if ( $death) {
+             Toastr::success('You can Register for New Marriage', 'Success!');
+            return view('admin.marriage.add');
+        } else {
+             Toastr::error('You are not eligible for New marriage ', 'Danger!');
+            // return view('admin.marriage.remarriage.permission');
+            return redirect()->back();
+        }
+        
+    }
+
+
     public function add(Request $request){
+
+        $request->validate([
+            'husband_nid' => 'required',
+            'wife_nid' => 'required',
+            
+        ]);
 
         $husband_nid = $request->husband_nid;
         $wife_nid = $request->wife_nid;

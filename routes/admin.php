@@ -105,7 +105,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
           Route::post('marriage/divorce', [\App\Http\Controllers\Admin\MarriageController::class, 'check_divorce'])->name('marriage.divorce');
 
 
-          Route::post('marriage/death', [\App\Http\Controllers\Admin\MarriageController::class, 'death'])->name('marriage.death');
+          Route::get('marriage/death', [\App\Http\Controllers\Admin\MarriageController::class, 'death'])->name('marriage.death');
           Route::post('marriage/death', [\App\Http\Controllers\Admin\MarriageController::class, 'check_death'])->name('marriage.death');
 
 

@@ -11,6 +11,7 @@
 							<div class="card-body">
 								@if($errors->any())
 									<div class="col-12 my-3 bg-danger text-white py-2">
+										
 										<h6 class="pt-2">{{ implode('', $errors->all(':message')) }}</h6>
 									</div>
                                 @endif
