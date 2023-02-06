@@ -23,7 +23,7 @@
                                     </div>
                                 @endif
                         <div class="border p-4 rounded">
-                               <form action="{{ route('admin.marriage.store') }}" method="POST" enctype="multipart/form-data">
+                               <form action="{{ route('admin.marriage.hello') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
        <div class="card-header">
         <h5 class=" text-danger">HUSBAND DETAILS</h5>
@@ -33,25 +33,30 @@
           <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Husband</label>
             <div class="col-sm-7">
-                <input type="text" style="max-width:350px; height: 35px; " name="husband_name" class="form-control" placeholder="Please Enter Full Name of the Husband" required>
+                <input type="text" style="max-width:350px; height: 35px; " name="husband_name" class="form-control" placeholder="Please Enter Full Name of the Husband" >
+               
+                 @if ($errors->has('husband_name'))
+                    <span class="text-danger">{{ $errors->first('husband_name') }}</span>
+                @endif
+                
             </div>
         </div>
           <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Religion</label>
             <div class="col-sm-7">
-                <input type="text" style="max-width:200px; height: 35px; " name="husband_religion" class="form-control"  placeholder="Religion" required>
+                <input type="text" style="max-width:200px; height: 35px; " name="husband_religion" class="form-control"  placeholder="Religion">
             </div>
         </div>
           <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Date of Birth</label>
             <div class="col-sm-7">
-                <input type="date" style="max-width:200px; height: 35px; " name="husband_birthday" class="form-control" id="inputEmail" placeholder="Email" required>
+                <input type="date" style="max-width:200px; height: 35px; " name="husband_birthday" class="form-control" id="inputEmail" placeholder="Email" >
             </div>
         </div>
          <div class="row ">
             <label for="image" class="col-sm-5 col-form-label">Husband Image</label>
             <div class="col-sm-7">
-                <input type="file" class="form-control" id="image" style="max-width:400px; height: 35px; " class="form-control" name="husband_image" required>
+                <input type="file" class="form-control" id="image" style="max-width:400px; height: 35px; " class="form-control" name="husband_image" >
                  <span class="text-primary" >Image dimension must be (600 X 600) pixels and maximum size 150kb. </span>
             </div>
           </div>  
@@ -71,7 +76,7 @@
               <div class="row ">
             <label for="image" class="col-sm-4 col-form-label">Husband Nid Image</label>
             <div class="col-sm-8">
-                <input type="file" class="form-control" id="image" style="max-width:400px; height: 35px; " class="form-control" name="husband_nid_image" required>
+                <input type="file" class="form-control" id="image" style="max-width:400px; height: 35px; " class="form-control" name="husband_nid_image" >
                  <span class="text-primary" >Image dimension must be (600 X 600) pixels and maximum size 150kb. </span>
             </div>
           </div>
@@ -161,26 +166,26 @@
           <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Wife </label>
             <div class="col-sm-7">
-                <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="wife_name" placeholder="Please Enter Full Name of the Husband" required>
+                <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="wife_name" placeholder="Please Enter Full Name of the Husband" >
             </div>
         </div>
           <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Religion</label>
             <div class="col-sm-7">
-                <input type="text" style="max-width:200px; height: 35px; " class="form-control" id="inputEmail" name="wife_religion" placeholder="Religion" required>
+                <input type="text" style="max-width:200px; height: 35px; " class="form-control" id="inputEmail" name="wife_religion" placeholder="Religion" >
             </div>
         </div>
           <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Date of Birth</label>
             <div class="col-sm-7">
-                <input type="date" style="max-width:200px; height: 35px; " class="form-control" name="wife_birthday" required>
+                <input type="date" style="max-width:200px; height: 35px; " class="form-control" name="wife_birthday" >
             </div>
         </div>
 
          <div class="row ">
             <label for="image" class="col-sm-5 col-form-label">Wife Image</label>
             <div class="col-sm-7">
-                <input type="file" class="form-control" id="image" style="max-width:400px; height: 35px; " class="form-control" name="wife_image" required>
+                <input type="file" class="form-control" id="image" style="max-width:400px; height: 35px; " class="form-control" name="wife_image" >
                  <span class="text-primary" >Image dimension must be (600 X 600) pixels and maximum size 150kb. </span>
             </div>
           </div>  
@@ -201,7 +206,7 @@
               <div class="row ">
             <label for="image" class="col-sm-4 col-form-label"> Wife Nid Photo</label>
             <div class="col-sm-8">
-                <input type="file" class="form-control" id="image" style="max-width:400px; height: 35px; " class="form-control" name="wife_nid_image" required>
+                <input type="file" class="form-control" id="image" style="max-width:400px; height: 35px; " class="form-control" name="wife_nid_image" >
                  <span class="text-primary" >Image dimension must be (600 X 600) pixels and maximum size 150kb. </span>
             </div>
           </div>
@@ -290,7 +295,7 @@
          <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Husband Witness</label>
             <div class="col-sm-7">
-                <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="witness1_name" placeholder="Please Enter Full Name of the Witness" required>
+                <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="witness1_name" placeholder="Please Enter Full Name of the Witness" >
                
             </div>
         </div>
@@ -308,7 +313,7 @@
         <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Husband Witness</label>
             <div class="col-sm-7">
-                <input type="text" style="max-width:350px; height: 35px; " name="witness2_name" class="form-control" placeholder="Please Enter Full Name of the Witness" required>
+                <input type="text" style="max-width:350px; height: 35px; " name="witness2_name" class="form-control" placeholder="Please Enter Full Name of the Witness" >
                
             </div>
         </div>
@@ -326,7 +331,7 @@
         <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Wife Witness</label>
             <div class="col-sm-7">
-                <input type="text" style="max-width:350px; height: 35px; " name="witness3_name" class="form-control" placeholder="Please Enter Full Name of the Witness" required>
+                <input type="text" style="max-width:350px; height: 35px; " name="witness3_name" class="form-control" placeholder="Please Enter Full Name of the Witness" >
                
             </div>
         </div>
@@ -342,7 +347,7 @@
         <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Wife Witness</label>
             <div class="col-sm-7">
-                <input type="text" style="max-width:350px; height: 35px; " name="witness4_name" class="form-control" placeholder="Please Enter Full Name of the Witness" required>
+                <input type="text" style="max-width:350px; height: 35px; " name="witness4_name" class="form-control" placeholder="Please Enter Full Name of the Witness" >
                
             </div>
         </div>

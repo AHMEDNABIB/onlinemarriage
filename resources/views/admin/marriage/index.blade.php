@@ -63,12 +63,12 @@
                                                 <i class="lni lni-trash"></i>
                                             </a> --}}
                                             
-                                            <form  action="{{ route('admin.marriage.destroy', $value->id ) }}" method="post">
+                                            {{-- <form  action="{{ route('admin.marriage.destroy', $value->id ) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                  <input name="_method" type="hidden" value="DELETE">
                                             <button  type="submit"  class="p-1 btn bg-danger text-white mx-0 show_confirm " ><i class="lni lni-trash"></i></button>
-                                           </form>
+                                           </form> --}}
                                         </div>
                                     </td>
                                 </tr>

@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Marriage;
+use App\Http\Requests\MarriageRequest;
 use Toastr;
+use App\Notifications\EmailNotification;
+use Illuminate\Support\Facades\Notification;
 class DivorceController extends Controller
 {   
     public function add()
@@ -64,9 +67,50 @@ class DivorceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(MarriageRequest $request)
+    {    
         // dd($request->all());
+        //  $request->validate([
+        //     'husband_name' => 'required',
+        //     //'phone' => 'required',
+        //     //'address' => 'required',
+        //     'husband_image' => ['required', 'mimes:jpeg,png,jpg,', 'max:500'],
+        // ]);
+
+        $email1 = $request->husband_email;
+        $email2 = $request->wife_email;
+
+        $kazi = 'kazi@gmail.com';
+        $governer = 'goberner@gmail.com';
+
+        $email = array($email1, $email2,$kazi,$governer);
+
+        // dd($email1, $email2, $email);
+
+
+
+        
+    
+
+     $project = [
+            // 'greeting' => 'Hi ',
+            'greeting' => 'Hi '.$request->husband_name.''.$request->Wife_name.',',
+
+            'body' => 'The Couple' .$request->husband_name. ''.$request->Wife_name. '',
+            'thanks' => 'Thank you this is from codeanddeploy.com',
+            'actionText' => 'View Project',
+            'actionURL' => url('/'),
+            'id' => 57
+        ];
+
+
+        foreach($email as $key => $user ){
+            Notification::route('mail', $user)->notify(new EmailNotification($project));
+        }
+
+     
+    // Notification::route('mail', $email)->notify(new EmailNotification($project));
+         
 
         $husband_image = $request->file('husband_image');
         $image_path = public_path('images/marriage/');
@@ -186,9 +230,12 @@ class DivorceController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $divorce_reg = Marriage::find($id);
-
-        //  dd($divorce_reg, $id);
+        //   $request->validate([
+        //     'husband_name' => 'required',
+        //     //'phone' => 'required',
+        //     //'address' => 'required',
+        //     'husband_image' => ['required', 'mimes:jpeg,png,jpg,', 'max:500'],
+        // ]);
 
         
         Marriage::find($id)->update([

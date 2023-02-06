@@ -57,36 +57,31 @@
             </a>
             <ul>
                 <li>
-                    <a href="{{ route('admin.marriage.create') }}" class="{{ request()->path() == 'admin/marriage/create' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>New Marriage</a>
+                    <a href="{{ route('admin.marriage.new') }}" class="{{ request()->path() == 'admin/marriage/new' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>New Marriage</a>
                 </li>
                 
                 <li>
-                    <a href="{{ route('admin.marriage.index') }}" class="{{ request()->path() == 'admin/marriage/' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>All Marriage</a>
+                    <a href="{{ route('admin.marriage.index') }}" class="{{ request()->path() == 'admin/marriage/index' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>All Marriage</a>
                 </li>
 
 
                 {{-- ReMarriage --}}
 
-                <li>
-            <a href="javascript:;" class="has-arrow">
-              
-                    <i class="bx bx-right-arrow-alt"> </i>
-                
-                Remarriage
-            </a>
-            <ul>
-                <li>
-                    <a href="{{ route('admin.marriage.permission') }}" class="{{ request()->path() == 'admin/marriage/permission' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Permission Letter</a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.marriage.divorce') }}" class="{{ request()->path() == 'admin/marriage/divorce' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Divorce</a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.marriage.death') }}" class="{{ request()->path() == 'admin/marriage/death' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Death</a>
-                </li>
-                
-            </ul>
-        </li>
+                {{-- <li>
+                    <a href="javascript:;" class="has-arrow"><i class="bx bx-right-arrow-alt"> </i>Remarriage</a>
+                    <ul>
+                        <li>
+                            <a href="{{ route('admin.marriage.permission') }}" class="{{ request()->path() == 'admin/marriage/permission' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Permission Letter</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.marriage.divorce') }}" class="{{ request()->path() == 'admin/marriage/divorce' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Divorce</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.marriage.death') }}" class="{{ request()->path() == 'admin/marriage/death' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Death</a>
+                        </li>
+                        
+                    </ul>
+                </li> --}}
 
 
                

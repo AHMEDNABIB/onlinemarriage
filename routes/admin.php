@@ -5,27 +5,16 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\Auth\ForgotPasswordController;
 use App\Http\Controllers\Admin\Auth\RegistrationController;
-use App\Http\Controllers\Admin\AwardController;
-use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\ClientController;
+
 use App\Http\Controllers\Admin\ContactUsController;
-use App\Http\Controllers\Admin\FactoryController;
-use App\Http\Controllers\Admin\GalleryController;
-use App\Http\Controllers\Admin\MessageController;
-use App\Http\Controllers\Admin\PageController;
-use App\Http\Controllers\Admin\PartnerController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\ProductRangeController;
+
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\ShopController;
-use App\Http\Controllers\Admin\SliderController;
-//use App\Http\Controllers\Admin\Payment\RocketPaymentApiController;
 
-// use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\SubscribeController;
 use App\Http\Controllers\Admin\TVCController;
 use App\Http\Controllers\Admin\DivorceController;
+use App\Http\Controllers\Admin\MarriageController;
  use App\Models\Product;
  use Illuminate\Support\Facades\Route;
 
@@ -96,23 +85,31 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 
           //   Remarriage
-          Route::get('marriage/permission', [\App\Http\Controllers\Admin\MarriageController::class, 'permission'])->name('marriage.permission');
+          // Route::get('marriage/permission', [\App\Http\Controllers\Admin\MarriageController::class, 'permission'])->name('marriage.permission');
 
-          Route::post('marriage/permission', [\App\Http\Controllers\Admin\MarriageController::class, 'check_permission'])->name('marriage.permission');
-
-
-          Route::get('marriage/divorce', [\App\Http\Controllers\Admin\MarriageController::class, 'divorce'])->name('marriage.divorce');
-          Route::post('marriage/divorce', [\App\Http\Controllers\Admin\MarriageController::class, 'check_divorce'])->name('marriage.divorce');
+          // Route::post('marriage/permission', [\App\Http\Controllers\Admin\MarriageController::class, 'check_permission'])->name('marriage.permission');
 
 
-          Route::get('marriage/death', [\App\Http\Controllers\Admin\MarriageController::class, 'death'])->name('marriage.death');
-          Route::post('marriage/death', [\App\Http\Controllers\Admin\MarriageController::class, 'check_death'])->name('marriage.death');
+          // Route::get('marriage/divorce', [\App\Http\Controllers\Admin\MarriageController::class, 'divorce'])->name('marriage.divorce');
+          // Route::post('marriage/divorce', [\App\Http\Controllers\Admin\MarriageController::class, 'check_divorce'])->name('marriage.divorce');
+
+
+          // Route::get('marriage/death', [\App\Http\Controllers\Admin\MarriageController::class, 'death'])->name('marriage.death');
+          // Route::post('marriage/death', [\App\Http\Controllers\Admin\MarriageController::class, 'check_death'])->name('marriage.death');
 
 
         // Marriage
-          Route::post('marriage/add', [\App\Http\Controllers\Admin\MarriageController::class, 'add'])->name('marriage.add');
-        Route::resource('marriage', \App\Http\Controllers\Admin\MarriageController::class);
+        //   Route::post('marriage/add', [\App\Http\Controllers\Admin\MarriageController::class, 'add'])->name('marriage.add');
+        // Route::resource('marriage', \App\Http\Controllers\Admin\MarriageController::class);
+
+        Route::post('marriage/save', [MarriageController::class, 'store'])->name('marriage.hello');
        
+        Route::get('marriage/new', [MarriageController::class, 'add'])->name('marriage.new');
+        Route::get('marriage', [MarriageController::class, 'check_new'])->name('marriage.check');
+
+        Route::get('marriage/index', [MarriageController::class, 'index'])->name('marriage.index');
+
+        
       
 
 

@@ -16,8 +16,8 @@
 									</div>
                                 @endif
 								<div class="border p-4 rounded">
-									<form action="{{ route('admin.marriage.add') }}" method="POST" enctype="multipart/form-data">
-                                     @csrf
+									<form action="{{ route('admin.marriage.check') }}" method="GET" enctype="multipart/form-data">
+                                     
 									<div class="card-title d-flex align-items-center">
 										<div><i class="bx bxs-user me-1 font-22 text-info"></i>
 										</div>

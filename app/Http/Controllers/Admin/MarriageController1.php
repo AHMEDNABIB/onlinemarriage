@@ -4,17 +4,107 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+// use App\Http\Requests\MarriageRequest;
 use App\Models\Marriage;
+
 use Toastr;
 
 class MarriageController extends Controller
-{
-    public function add(){
-         return view('admin.marriage.new_marriage');
+{    
+    // remarriage
+    public function permission(){
+      return view('admin.marriage.remarriage.permission');
     }
 
-    public function check_new(Request $request ){
-          $request->validate([
+    public function check_permission(Request $request){
+
+         $request->validate([
+            'wife_permission_no' => 'required',
+            
+        ]);
+
+        $check_permission = $request->wife_permission_no;
+        
+        $wife_permission = Marriage::where('wife_permission_no',$check_permission)->first();
+
+        // dd($wife_permission);
+
+        if ( $wife_permission) {
+             Toastr::success('You can Register for New Marriage', 'Success!');
+            return view('admin.marriage.add');
+        } else {
+             Toastr::error('You are not eligible for New marriage ', 'Danger!');
+            // return view('admin.marriage.remarriage.permission');
+            return redirect()->back();
+        }
+        
+    }
+
+     public function divorce(){
+      return view('admin.marriage.remarriage.divorce');
+    }
+
+    public function check_divorce(Request $request){
+
+         $request->validate([
+            'divorce_no' => 'required',
+            
+        ]);
+        $check_divorce = $request->divorce_no;
+        
+        $divorce = Marriage::where('divorce_no',$check_divorce)->first();
+
+        // dd($divorce);
+
+        if ( $divorce) {
+             Toastr::success('You can Register for New Marriage', 'Success!');
+            return view('admin.marriage.add');
+        } else {
+             Toastr::error('You are not eligible for New marriage ', 'Danger!');
+            // return view('admin.marriage.remarriage.permission');
+            return redirect()->back();
+        }
+        
+    }
+
+
+      public function death(){
+      return view('admin.marriage.remarriage.death');
+    
+    }
+
+    public function check_death(Request $request){
+
+        $request->validate([
+            'death_no' => 'required',
+            
+        ]);
+
+        $check_death = $request->death_no;
+        
+        $death = Marriage::where('death_no',$check_death)->first();
+
+       
+
+        if ( $death) {
+             Toastr::success('You can Register for New Marriage', 'Success!');
+            return view('admin.marriage.add');
+        } else {
+             Toastr::error('You are not eligible for New marriage ', 'Danger!');
+            // return view('admin.marriage.remarriage.permission');
+            return redirect()->back();
+        }
+        
+    }
+
+    // end of remarriage
+
+    // new marriage
+
+
+    public function add(Request $request){
+
+        $request->validate([
             'husband_nid' => 'required',
             'wife_nid' => 'required',
             
@@ -36,9 +126,15 @@ class MarriageController extends Controller
             return view('admin.marriage.new_marriage');
          }
          
-    }
 
-     public function index()
+         
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
          $all_marriage = Marriage::all()->where('status', 'married');
 
@@ -46,15 +142,25 @@ class MarriageController extends Controller
         return view('admin.marriage.index', compact('all_marriage'));
     }
 
-     public function store(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        // $request->validate([
-        //     'husband_name' => 'required',
-        //     //'phone' => 'required',
-        //     //'address' => 'required',
-        //     'husband_image' => ['required', 'mimes:jpeg,png,jpg,', 'max:500'],
-        // ]);
-         
+        return view('admin.marriage.new_marriage');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {   
+        
 
         $husband_image = $request->file('husband_image');
         $image_path = public_path('images/marriage/');
@@ -90,11 +196,8 @@ class MarriageController extends Controller
            
             
             'reg_no' => random_int(100000, 999999),
-            'divorce_no' => random_int(100000, 999999),
-            'death_no' => random_int(100000, 999999),
-            'wife_permission_no' => random_int(100000, 999999),
+           
             'status'=>'married',
-
             'husband_nid'=>$request->husband_nid,
              'husband_nid_image'=>$husband_nid_image_name_path,
             'husband_name'=>$request->husband_name,
@@ -135,11 +238,58 @@ class MarriageController extends Controller
            'wife_email'=>$request->wife_email,
             
         ];
+
+     
     
          Marriage::create($input);
 
         Toastr::success('Saved Successfully', 'Success!');
-         return redirect()->route('admin.marriage.index');
-        // return redirect()->back();
+        // return redirect()->route('admin.marriage.index');
+        return redirect()->back();
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }
