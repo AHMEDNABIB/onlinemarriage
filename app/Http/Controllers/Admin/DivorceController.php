@@ -301,8 +301,8 @@ class DivorceController extends Controller
      */
     public function edit($id)
     {
-        //  $data = Marriage::find($id);
-        // return view('admin.divorce.edit', compact('data'));
+          $divorce = Marriage::find($id);
+         return view('admin.divorce.edit', compact('divorce'));
     }
 
     /**
@@ -327,7 +327,7 @@ class DivorceController extends Controller
             // 'divorce_no' => 'null',
             //'death_no' => random_int(100000, 999999),
             //'wife_permission_no' => random_int(100000, 999999),
-            'status'=>'married',
+            'status'=>'divorce',
 
             'husband_nid'=>$request->husband_nid,
            //  'husband_nid_image'=>$husband_nid_image_name_path,
@@ -369,7 +369,7 @@ class DivorceController extends Controller
            'wife_email'=>$request->wife_email,
         ]);
 
-        Toastr::success('Divorce Annuled Successfully', 'Updated!');
+        Toastr::success('Divorce Updated Successfully', 'Updated!');
         return redirect()->route('admin.divorce.add');
     }
 
