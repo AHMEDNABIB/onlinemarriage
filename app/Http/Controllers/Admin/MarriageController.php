@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Marriage;
 use App\Http\Requests\MarriageRequest;
+use App\Http\Requests\MarriageUpdateRequest;
 use Toastr;
 use App\Notifications\EmailNotification;
 use Illuminate\Support\Facades\Notification;
@@ -248,6 +249,68 @@ class MarriageController extends Controller
         Toastr::success('Saved Successfully', 'Success!');
          return redirect()->route('admin.marriage.index');
         // return redirect()->back();
+    }
+
+     public function edit($id)
+    {
+          $marriage = Marriage::find($id);
+         return view('admin.marriage.edit', compact('marriage'));
+    }
+
+     public function update(MarriageUpdateRequest $request, $id)
+    {
+         
+
+        
+        Marriage::find($id)->update([
+            //'reg_no' => random_int(100000, 999999),
+            // 'divorce_no' => 'null',
+            //'death_no' => random_int(100000, 999999),
+            //'wife_permission_no' => random_int(100000, 999999),
+            //'status'=>'divorce',
+
+            'husband_nid'=>$request->husband_nid,
+           //  'husband_nid_image'=>$husband_nid_image_name_path,
+            'husband_name'=>$request->husband_name,
+            'husband_religion'=>$request->husband_religion,
+            'husband_birthday'=>$request->husband_birthday,
+           // 'husband_image'=>$husband_image_name_path,
+            'husband_flat_no'=>$request->husband_flat_no,
+            'husband_road_name'=>$request->husband_road_name,
+            'husband_state'=>$request->husband_state,
+            'husband_city_name'=>$request->husband_city_name,
+            'husband_pincode'=>$request->husband_pincode,
+
+            'wife_nid'=>$request->wife_nid,
+          //  'wife_nid_image'=>$wife_nid_image_name_path,
+            'wife_name'=>$request->wife_name,
+            'wife_religion'=>$request->wife_religion,
+            'wife_birthday'=>$request->wife_birthday,
+           //  'wife_image'=>$wife_image_name_path,
+            'wife_flat_no'=>$request->wife_flat_no,
+            'wife_road_name'=>$request->wife_road_name,
+            'wife_state'=>$request->wife_state,
+            'wife_city_name'=>$request->wife_city_name,
+            'wife_pincode'=>$request->wife_pincode,
+
+            'witness1_name'=>$request->witness1_name,
+            'witness1_address'=>$request->witness1_address,
+            'witness2_name'=>$request->witness2_name,
+            'witness2_address'=>$request->witness2_address,
+            'witness3_name'=>$request->witness3_name,
+            'witness3_address'=>$request->witness3_address,
+            'witness4_name'=>$request->witness4_name,
+            'witness4_address'=>$request->witness4_address,
+            
+            
+           'husband_contact_number'=>$request->husband_contact_number,
+           'husband_email'=>$request->husband_email,
+           'wife_contact_number'=>$request->wife_contact_number,
+           'wife_email'=>$request->wife_email,
+        ]);
+
+        Toastr::success('Divorce Updated Successfully', 'Updated!');
+        return redirect()->route('admin.marriage.index');
     }
 
     public function destroy(Request $request,$id)

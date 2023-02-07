@@ -25,11 +25,11 @@ class MarriageRequest extends FormRequest
     {
         return [
              
-            // 'husband_name' => ['required', 'mimes:jpeg,png,jpg,', 'max:500', ''],
+           
             'husband_name' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
             'husband_nid' => "required|numeric|regex:/^[0-9A-Za-z.\s,'-]*$/",
             'husband_nid_image' => 'required||mimes:jpeg,png,jpg||max:500',
-            'husband_name' =>  "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
+            
             'husband_religion' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
             'husband_image' => 'required||mimes:jpeg,png,jpg||max:500',
             'husband_birthday' => 'required',
@@ -40,7 +40,6 @@ class MarriageRequest extends FormRequest
             'husband_pincode' => 'required|numeric',
 
             'wife_nid' => "required|numeric|regex:/^[0-9A-Za-z.\s,'-]*$/",
-
             'wife_nid_image' => 'required||mimes:jpeg,png,jpg||max:500',
             'wife_name' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
             'wife_religion' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
@@ -48,10 +47,10 @@ class MarriageRequest extends FormRequest
             'wife_image' => 'required||mimes:jpeg,png,jpg||max:500',
             'wife_flat_no' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
             'wife_road_name' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
-
             'wife_state' => 'required',
             'wife_city_name' => 'required',
             'wife_pincode'=> 'required||numeric',
+            
             'witness1_name' => 'required',
             'witness1_address' => 'required',
             'witness2_name' => 'required',

@@ -89,17 +89,16 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 
           //   Remarriage
-          Route::get('marriage/permission', [MarriageController::class, 'permission'])->name('marriage.permission');
-
-          Route::get('marriage/check/permission', [MarriageController::class, 'check_permission'])->name('marriage.check.permission');
-
-
-          Route::get('marriage/divorce', [MarriageController::class, 'divorce'])->name('marriage.divorce');
-          Route::get('marriage/check/divorce', [MarriageController::class, 'check_divorce'])->name('marriage.check.divorce');
+        Route::get('marriage/permission', [MarriageController::class, 'permission'])->name('marriage.permission');
+        Route::get('marriage/check/permission', [MarriageController::class, 'check_permission'])->name('marriage.check.permission');
 
 
-          Route::get('marriage/death', [MarriageController::class, 'death'])->name('marriage.death');
-          Route::get('marriage/check/death', [MarriageController::class, 'check_death'])->name('marriage.check.death');
+        Route::get('marriage/divorce', [MarriageController::class, 'divorce'])->name('marriage.divorce');
+        Route::get('marriage/check/divorce', [MarriageController::class, 'check_divorce'])->name('marriage.check.divorce');
+
+
+        Route::get('marriage/death', [MarriageController::class, 'death'])->name('marriage.death');
+        Route::get('marriage/check/death', [MarriageController::class, 'check_death'])->name('marriage.check.death');
 
 
         // Marriage
@@ -112,12 +111,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
         Route::get('marriage/index', [MarriageController::class, 'index'])->name('marriage.index');
         Route::post('marriage/save', [MarriageController::class, 'store'])->name('marriage.store');
+        Route::get('/marriage/edit/{id}', [MarriageController::class, 'edit'])->name('marriage.edit');
+        Route::post('/marriage/{id}', [MarriageController::class, 'update'])->name('marriage.update');
         Route::delete('/marriage/delete/{id}', [MarriageController::class, 'destroy'])->name('marriage.destroy');
-
-        
-      
-
-
     });
 
 });

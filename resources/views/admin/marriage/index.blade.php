@@ -51,7 +51,7 @@
 
                                         <div class="d-flex order-actions justify-content-center">
                                             {{-- EDIT --}}
-                                            <a href="{{ route('admin.shop.edit', $value->id) }}" class="bg-primary text-white" title="Edit This shop">
+                                            <a href="{{ route('admin.marriage.edit', $value->id) }}" class="bg-primary text-white" title="Edit This shop">
                                                 <i class='fadeIn animated bx bx-edit'></i>
                                             </a>
                                             {{-- TRASH --}}
