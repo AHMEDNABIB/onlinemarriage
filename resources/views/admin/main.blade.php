@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="{{ asset('admin/toastr/css/toastr.min.css') }}">
 	<title>{{ isset(settings()->title)?settings()->title:'' }}</title>
 
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.css">
+
 
 
 </head>
@@ -181,9 +183,16 @@
 
     {!! Toastr::message() !!}
 
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script>
+
+
 	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
+
+$(document).ready( function () {
+    $('#table_id').DataTable();
+} );
  
      $('.show_confirm').click(function(event) {
           var form =  $(this).closest("form");
@@ -204,7 +213,7 @@
       });
   
 </script>
-=
+
 
 
 </body>

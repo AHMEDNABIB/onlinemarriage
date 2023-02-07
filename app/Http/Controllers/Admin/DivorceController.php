@@ -15,6 +15,93 @@ class DivorceController extends Controller
     {
         return view('admin.divorce.divorce_annulment');
     }
+
+     public function annulment(Request $request, $id)
+    {
+        //   $request->validate([
+        //     'husband_name' => 'required',
+        //     //'phone' => 'required',
+        //     //'address' => 'required',
+        //     'husband_image' => ['required', 'mimes:jpeg,png,jpg,', 'max:500'],
+        // ]);
+
+
+        //  dd($request->wife_name);
+
+         $email1 = $request->husband_email;
+        $email2 = $request->wife_email;
+
+        $kazi = 'kazi@gmail.com';
+        $governer = 'goberner@gmail.com';
+
+        $email = array($email1, $email2,$kazi,$governer);
+
+        // dd($email1, $email2, $email);
+
+     $project = [
+            // 'greeting' => 'Hi ',
+            'greeting' => 'Congratulation '.$request->wife_name.' "And" '.$request->husband_name.',',
+
+            'body' => 'You Are Married',
+            
+        ];
+
+
+        foreach($email as $key => $user ){
+            Notification::route('mail', $user)->notify(new EmailNotification($project));
+        }
+
+        
+        Marriage::find($id)->update([
+            'reg_no' => random_int(100000, 999999),
+             'divorce_no' => 'null',
+            'death_no' => 'null',
+            'wife_permission_no' => 'null',
+            'status'=>'married',
+
+            'husband_nid'=>$request->husband_nid,
+           //  'husband_nid_image'=>$husband_nid_image_name_path,
+            'husband_name'=>$request->husband_name,
+            'husband_religion'=>$request->husband_religion,
+            'husband_birthday'=>$request->husband_birthday,
+           // 'husband_image'=>$husband_image_name_path,
+            'husband_flat_no'=>$request->husband_flat_no,
+            'husband_road_name'=>$request->husband_road_name,
+            'husband_state'=>$request->husband_state,
+            'husband_city_name'=>$request->husband_city_name,
+            'husband_pincode'=>$request->husband_pincode,
+
+            'wife_nid'=>$request->wife_nid,
+          //  'wife_nid_image'=>$wife_nid_image_name_path,
+            'wife_name'=>$request->wife_name,
+            'wife_religion'=>$request->wife_religion,
+            'wife_birthday'=>$request->wife_birthday,
+           //  'wife_image'=>$wife_image_name_path,
+            'wife_flat_no'=>$request->wife_flat_no,
+            'wife_road_name'=>$request->wife_road_name,
+            'wife_state'=>$request->wife_state,
+            'wife_city_name'=>$request->wife_city_name,
+            'wife_pincode'=>$request->wife_pincode,
+
+            'witness1_name'=>$request->witness1_name,
+            'witness1_address'=>$request->witness1_address,
+            'witness2_name'=>$request->witness2_name,
+            'witness2_address'=>$request->witness2_address,
+            'witness3_name'=>$request->witness3_name,
+            'witness3_address'=>$request->witness3_address,
+            'witness4_name'=>$request->witness4_name,
+            'witness4_address'=>$request->witness4_address,
+            
+            
+           'husband_contact_number'=>$request->husband_contact_number,
+           'husband_email'=>$request->husband_email,
+           'wife_contact_number'=>$request->wife_contact_number,
+           'wife_email'=>$request->wife_email,
+        ]);
+
+        Toastr::success('Divorce Annuled Successfully', 'Updated!');
+        return redirect()->route('admin.divorce.add');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -43,11 +130,13 @@ class DivorceController extends Controller
     public function save(Request $request){
 
         // dd($request->reg_no);
-        $reg_no = $request->reg_no;
+        $divorce_no = $request->divorce_no;
 
-        $divorce = Marriage::where('reg_no',$reg_no)->where('status','divorce')->first();
+        // dd($divorce_no);
 
-        // dd($divorce);
+        $divorce = Marriage::where('divorce_no',$divorce_no)->where('status','divorce')->first();
+
+    //  dd($divorce);
 
         if($divorce){
             Toastr::success('You can Annual your Divorce', 'Success!');
@@ -87,21 +176,16 @@ class DivorceController extends Controller
 
         // dd($email1, $email2, $email);
 
+     
+             $project = [
+            // 'greeting' => 'Hi ',
+            'greeting' => 'Congratulation '.$request->wife_name.' "And" '.$request->husband_name.',',
 
+            'body' => 'You Are Divorced',
+            
+        ];
 
         
-    
-
-     $project = [
-            // 'greeting' => 'Hi ',
-            'greeting' => 'Hi '.$request->husband_name.''.$request->Wife_name.',',
-
-            'body' => 'The Couple' .$request->husband_name. ''.$request->Wife_name. '',
-            'thanks' => 'Thank you this is from codeanddeploy.com',
-            'actionText' => 'View Project',
-            'actionURL' => url('/'),
-            'id' => 57
-        ];
 
 
         foreach($email as $key => $user ){
@@ -145,10 +229,10 @@ class DivorceController extends Controller
         $input = [
            
             
-            'reg_no' => random_int(100000, 999999),
+            // 'reg_no' => random_int(100000, 999999),
             'divorce_no' => random_int(100000, 999999),
-            'death_no' => random_int(100000, 999999),
-            'wife_permission_no' => random_int(100000, 999999),
+            // 'death_no' => random_int(100000, 999999),
+            // 'wife_permission_no' => random_int(100000, 999999),
             'status'=>'divorce',
 
             'husband_nid'=>$request->husband_nid,
@@ -217,8 +301,8 @@ class DivorceController extends Controller
      */
     public function edit($id)
     {
-         $data = Marriage::find($id);
-        return view('admin.divorce.edit', compact('data'));
+        //  $data = Marriage::find($id);
+        // return view('admin.divorce.edit', compact('data'));
     }
 
     /**
@@ -239,16 +323,18 @@ class DivorceController extends Controller
 
         
         Marriage::find($id)->update([
-            // 'reg_no' => random_int(100000, 999999),
+            'reg_no' => random_int(100000, 999999),
             // 'divorce_no' => 'null',
-            'death_no' => random_int(100000, 999999),
-            'wife_permission_no' => random_int(100000, 999999),
+            //'death_no' => random_int(100000, 999999),
+            //'wife_permission_no' => random_int(100000, 999999),
             'status'=>'married',
 
             'husband_nid'=>$request->husband_nid,
+           //  'husband_nid_image'=>$husband_nid_image_name_path,
             'husband_name'=>$request->husband_name,
             'husband_religion'=>$request->husband_religion,
             'husband_birthday'=>$request->husband_birthday,
+           // 'husband_image'=>$husband_image_name_path,
             'husband_flat_no'=>$request->husband_flat_no,
             'husband_road_name'=>$request->husband_road_name,
             'husband_state'=>$request->husband_state,
@@ -256,9 +342,11 @@ class DivorceController extends Controller
             'husband_pincode'=>$request->husband_pincode,
 
             'wife_nid'=>$request->wife_nid,
+          //  'wife_nid_image'=>$wife_nid_image_name_path,
             'wife_name'=>$request->wife_name,
             'wife_religion'=>$request->wife_religion,
             'wife_birthday'=>$request->wife_birthday,
+           //  'wife_image'=>$wife_image_name_path,
             'wife_flat_no'=>$request->wife_flat_no,
             'wife_road_name'=>$request->wife_road_name,
             'wife_state'=>$request->wife_state,
@@ -271,12 +359,14 @@ class DivorceController extends Controller
             'witness2_address'=>$request->witness2_address,
             'witness3_name'=>$request->witness3_name,
             'witness3_address'=>$request->witness3_address,
+            'witness4_name'=>$request->witness4_name,
+            'witness4_address'=>$request->witness4_address,
             
-            'delivery_flat_no'=>$request->delivery_flat_no,
-            'delivery_road_name'=>$request->delivery_road_name,
-            'delivery_state'=>$request->delivery_state,
-            'delivery_city_name'=>$request->delivery_city_name,
-            'delivery_pincode'=>$request->delivery_pincode,
+            
+           'husband_contact_number'=>$request->husband_contact_number,
+           'husband_email'=>$request->husband_email,
+           'wife_contact_number'=>$request->wife_contact_number,
+           'wife_email'=>$request->wife_email,
         ]);
 
         Toastr::success('Divorce Annuled Successfully', 'Updated!');

@@ -79,9 +79,11 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
         
 
-        Route::get('divorce/add', [\App\Http\Controllers\Admin\DivorceController::class, 'add'])->name('divorce.add');
-        Route::post('divorce/save', [\App\Http\Controllers\Admin\DivorceController::class, 'save'])->name('divorce.save');
-        Route::resource('divorce', \App\Http\Controllers\Admin\DivorceController::class);
+        Route::get('divorce/add', [DivorceController::class, 'add'])->name('divorce.add');
+        Route::get('divorce/save', [DivorceController::class, 'save'])->name('divorce.save');
+        Route::put('divorce/annulment/{id}', [DivorceController::class, 'annulment'])->name('divorce.annulment');
+
+        Route::resource('divorce', DivorceController::class);
 
 
           //   Remarriage
@@ -103,7 +105,6 @@ Route::prefix('admin')->name('admin.')->group(function(){
         // Route::resource('marriage', \App\Http\Controllers\Admin\MarriageController::class);
 
         Route::post('marriage/save', [MarriageController::class, 'store'])->name('marriage.hello');
-       
         Route::get('marriage/new', [MarriageController::class, 'add'])->name('marriage.new');
         Route::get('marriage', [MarriageController::class, 'check_new'])->name('marriage.check');
 

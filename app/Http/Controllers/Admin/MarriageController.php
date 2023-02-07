@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Marriage;
+use App\Http\Requests\MarriageRequest;
 use Toastr;
+use App\Notifications\EmailNotification;
+use Illuminate\Support\Facades\Notification;
 
 class MarriageController extends Controller
 {

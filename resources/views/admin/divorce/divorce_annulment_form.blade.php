@@ -23,13 +23,11 @@
                                     </div>
                                 @endif
                         <div class="border p-4 rounded">
-                               <form action="{{ route('admin.divorce.update', $divorce->id) }}" method="POST" enctype="multipart/form-data">
+                               <form action="{{ route('admin.divorce.annulment', $divorce->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
 
-                                <h1></h1>
-
-       <div class="card-header">
+                                <div class="card-header">
         <h5 class=" text-danger">HUSBAND DETAILS</h5>
       </div>
        
@@ -37,329 +35,80 @@
           <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Husband</label>
             <div class="col-sm-7">
-                <input type="text" style="max-width:350px; height: 35px; " name="husband_name" class="form-control" placeholder="Please Enter Full Name of the Husband" value="{{ $divorce->husband_name }}" required>
-            </div>
-        </div>
-          <div class="row mb-3">
-            <label  class="col-sm-5 col-form-label">Religion</label>
-            <div class="col-sm-7">
-                <input type="text" style="max-width:200px; height: 35px; " name="husband_religion" class="form-control"  placeholder="Religion" value="{{ $divorce->husband_religion }}" required>
-            </div>
-        </div>
-          <div class="row mb-3">
-            <label class="col-sm-5 col-form-label">Date of Birth</label>
-            <div class="col-sm-7">
-                <input type="date" style="max-width:200px; height: 35px; " name="husband_birthday" value="{{ $divorce->husband_birthday}}"class="form-control" id="inputEmail" placeholder="Email" required>
-            </div>
-        </div>
-          {{-- <div class="row mb-3">
-            <label for="inputEmail" class="col-sm-5 col-form-label">Marital status before the date of Marriage</label>
-            <div class="col-sm-7">
-              <select id="exampleInput5" class="form-select mb-3 "style="width:200px; " name="husband_marital_status" >
-                <option  value="bachelor">Bachelor</option>
-                <option value="married">Married</option>
-                <option value="divorcee">Divorcee</option>
-                <option value="widower">Widower</option>
-              </select>
-            </div>
-        </div> --}}
+                <input type="text" style="max-width:350px; height: 35px; " name="husband_name" class="form-control" placeholder="Please Enter Full Name of the Husband"  value="{{ $divorce->husband_name }}" >
 
-        <p>Permanent Address</p>
-        <hr>
-
-        <div class="row">
-          <div class="col-md-6">
-            <div class=" row mb-3">
-              <label for="exampleInput4" class=" col-sm-4 form-label">Flat / Room No.</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control col-sm-8" id="exampleInput4" name="husband_flat_no" placeholder="Flat / Room No." value="{{ $divorce->husband_flat_no }}" />
-              </div>
-              
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="row mb-3">
-               <label for="exampleInput4" class="col-sm-5 form-label">Road / Street Name</label>
-            <div class="col-sm-7">
-              <input type="text" class="form-control" id="exampleInput4" name="husband_road_name" placeholder="Road / Street Name" value="{{ $divorce->husband_road_name }}" />
-            </div>
-            </div>
-           
-            
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6">
-            <div class="row mb-3">
-              <label for="exampleInput4" class="form-label col-sm-4">Select State</label>
-              <div class="col-sm-8">
-               <select id="exampleInput5" class="form-select mb-3 "style="width:200px; "name="husband_state">
-                <option value="barishal">Barishal</option>
-                <option value="chattogram">Chattogram</option>
-                <option value="dhaka">Dhaka</option>
-                <option value="khulna">Khulna</option>
-                <option value="rajshahi">Rajshahi</option>
-                <option value="rangpur">Rangpur</option>
-                <option value="mymensingh">Mymensingh</option>
-                <option value="sylhet">Sylhet</option>
-                
-              </select>
-                 </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="row mb-3">
-               <label for="exampleInput4" class="col-sm-5 form-label">City Name</label>
-            <div class="col-sm-7">
-              <input type="text" class="form-control" id="exampleInput4" name="husband_city_name" placeholder="City Name" />
-            </div>
-            </div>
-        </div>
-      </div>
-
-       <div class="row">
-          <div class="col-md-6">
-            <div class=" row mb-3">
-              <label for="exampleInput4" class=" col-sm-4 form-label"> Pincode / Zipcode</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control col-sm-8" id="exampleInput4" name="husband_pincode" value="{{ $divorce->husband_pincode }}" placeholder=" Pincode / Zipcode" />
-              </div>
-              
-            </div>
-          </div>
-
-          
-        </div>
-       <div class="row mt-3">
-          <div class="col-md-6">
-            <div class=" row mb-3">
-              <label for="exampleInput4" class=" col-sm-4 form-label"> Nid No</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control col-sm-8" id="exampleInput4" name="husband_nid" value="{{ $divorce->husband_nid }}"placeholder=" Nid No" />
-              </div>
-              
-            </div>
-          </div>
-
-          
-        </div>
-      </div>
-
-      <div class="card-header">
-        <h5 class=" text-danger">WIFE DETAILS</h5>
-      </div>
-
-        <div class="card-body">
-          <div class="row mb-3">
-            <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Wife </label>
-            <div class="col-sm-7">
-                <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="wife_name" value="{{ $divorce->wife_name }}" placeholder="Please Enter Full Name of the Wife"  required>
+                  @if ($errors->has('husband_name'))
+                    <span class="text-danger">{{ $errors->first('husband_name') }}</span>
+                @endif
             </div>
         </div>
           <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Religion</label>
             <div class="col-sm-7">
-                <input type="text" style="max-width:200px; height: 35px; " class="form-control" id="inputEmail" name="wife_religion" value="{{ $divorce->wife_religion }}"  placeholder="Religion" required>
+                <input type="text" style="max-width:200px; height: 35px; " name="husband_religion" class="form-control"  placeholder="Religion" value="{{ $divorce->husband_religion }}" >
+                  @if ($errors->has('husband_religion'))
+                    <span class="text-danger">{{ $errors->first('husband_religion') }}</span>
+                @endif
             </div>
         </div>
           <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Date of Birth</label>
             <div class="col-sm-7">
-                <input type="date" style="max-width:200px; height: 35px; " class="form-control" name="wife_birthday" value="{{ $divorce->wife_birthday}}" required>
+                <input type="date" style="max-width:200px; height: 35px; " name="husband_birthday" class="form-control" id="inputEmail" placeholder="date" value="{{ $divorce->husband_birthday }}">
+                  @if ($errors->has('husband_birthday'))
+                    <span class="text-danger">{{ $errors->first('husband_birthday') }}</span>
+                @endif
             </div>
         </div>
-          {{-- <div class="row mb-3">
-            <label for="inputEmail" class="col-sm-5 col-form-label">Marital status before the date of Marriage</label>
+         {{-- <div class="row ">
+            <label for="image" class="col-sm-5 col-form-label">Husband Image</label>
             <div class="col-sm-7">
-              <select id="exampleInput5" class="form-select mb-3 " name="wife_marital_status" style="width:200px; ">
-                <option  value="bachelor">Bachelor</option>
-                 <option value="married">Married</option>
-                <option value="divorcee">Divorcee</option>
-                <option value="widower">Widower</option>
-               
-              </select>
+                <input type="file" class="form-control" id="image" style="max-width:400px; height: 35px; " class="form-control" name="husband_image" >
+                 @if ($errors->has('husband_image'))
+                    <span class="text-danger">{{ $errors->first('husband_image') }}</span>
+                @endif
+                 <span class="text-primary" >Image dimension must be (600 X 600) pixels and maximum size 150kb. </span>
             </div>
+             
+          </div>  
         </div> --}}
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <div class=" row mb-3">
+              <label for="exampleInput4" class=" col-sm-3 form-label"> Nid No</label>
+              <div class="col-sm-7">
+                <input type="number" class="form-control col-sm-9" id="exampleInput4" name="husband_nid" placeholder=" Nid No" value="{{$divorce->husband_nid}}"  />
+                  @if ($errors->has('husband_nid'))
+                    <span class="text-danger">{{ $errors->first('husband_nid') }}</span>
+                @endif
+              </div>
+              
+            </div>
+          </div>
 
-        <p>Permanent Address</p>
+          {{-- <div class="col-md-6">
+              <div class="row ">
+            <label for="image" class="col-sm-4 col-form-label">Husband Nid Image</label>
+            <div class="col-sm-8">
+                <input type="file" class="form-control" id="image" style="max-width:400px; height: 35px; " class="form-control" name="husband_nid_image" >
+                 
+                 <span class="text-primary" >Image dimension must be (600 X 600) pixels and maximum size 150kb. </span>
+            </div>
+             @if ($errors->has('husband_nid_image'))
+                    <span class="text-danger">{{ $errors->first('husband_nid_image') }}</span>
+                @endif
+          </div> --}}
+        </div>
+      </div>
+         
+        <h6>Permanent Address</h6>
         <hr>
 
-        <div class="row">
-          <div class="col-md-6">
-            <div class=" row mb-3">
-              <label for="exampleInput4" class=" col-sm-4 form-label">Flat / Room No.</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control col-sm-8" id="exampleInput4" name="wife_flat_no" value="{{ $divorce->wife_flat_no }}"placeholder="Flat / Room No." />
-              </div>
-              
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="row mb-3">
-               <label for="exampleInput4" class="col-sm-5 form-label">Road / Street Name</label>
-            <div class="col-sm-7">
-              <input type="text" class="form-control" id="exampleInput4" value="{{ $divorce->wife_road_name }}" name="wife_road_name" placeholder="Road / Street Name" />
-            </div>
-            </div>
-           
-            
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6">
-            <div class="row mb-3">
-              <label for="exampleInput4" class="form-label col-sm-4">Select State</label>
-              <div class="col-sm-8">
-               <select id="exampleInput5" class="form-select mb-3 " value="{{ $divorce->wife_state }}"  name="wife_state" style="width:200px; ">
-                <option  value="dhaka">Dhaka</option>
-                <option  value="noakhali">Noakhali</option>
-                <option  value="berishal">Barishal</option>
-              </select>
-                 </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="row mb-3">
-               <label for="exampleInput4" class="col-sm-5 form-label">City Name</label>
-            <div class="col-sm-7">
-              <input type="text" class="form-control" id="exampleInput4" name="wife_city_name" value="{{ $divorce->wife_city_name }}" placeholder="City Name" />
-            </div>
-            </div>
-        </div>
-      </div>
-
-       <div class="row">
-          <div class="col-md-6">
-            <div class=" row mb-3">
-              <label for="exampleInput4" class=" col-sm-4 form-label"> Pincode / Zipcode</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control col-sm-8" id="exampleInput4" name="wife_pincode" value="{{ $divorce->wife_pincode }}" placeholder=" Pincode / Zipcode" />
-              </div>
-              
-            </div>
-          </div>
-
-          
-        </div>
-       <div class="row mt-3">
-          <div class="col-md-6">
-            <div class=" row mb-3">
-              <label for="exampleInput4" class=" col-sm-4 form-label"> Nid No</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control col-sm-8" name="wife_nid" id="exampleInput4" value="{{ $divorce->wife_nid }}"  placeholder=" Nid No" />
-              </div>
-              
-            </div>
-          </div>
-
-          
-        </div>
-      </div>
-
-      <div class="card-header">
-        <h5 class=" text-danger">WITNESS DETAILS</h5>
-      </div>
-
-      <div class="card-body">
-         <div class="row mb-3">
-            <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Witness</label>
-            <div class="col-sm-7">
-                <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="witness1_name" value="{{ $divorce->witness1_name }}"  placeholder="Please Enter Full Name of the Witness" required>
-               
-            </div>
-        </div>
-
-         <div class="row mb-3">
-            <label for="inputEmail" class="col-sm-5 col-form-label">Address of Witness</label>
-            <div class="col-sm-7 ">
-              <textarea rows="2" cols="35" id="multiLineInput" name="witness1_address" class="" placeholder="Address of Witness">
-                {{ $divorce->witness1_address }}
-              </textarea>
-               
-            </div>
-            
-        </div>
-        <hr>
-
-        <div class="row mb-3">
-            <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Witness</label>
-            <div class="col-sm-7">
-                <input type="text" style="max-width:350px; height: 35px; " name="witness2_name" class="form-control" placeholder="Please Enter Full Name of the Witness" value="{{ $divorce->witness2_name }}" required>
-               
-            </div>
-        </div>
         
-         <div class="row mb-3">
-            <label for="inputEmail" class="col-sm-5 col-form-label">Address of Witness</label>
-            <div class="col-sm-7 ">
-              <textarea rows="2" cols="35" id="multiLineInput" name="witness2_address" class="" placeholder="Address of Witness">
-                {{ $divorce->witness2_address }}
-              </textarea>
-               
-            </div>
-            
-        </div>
-        <hr>
-
-        <div class="row mb-3">
-            <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Witness</label>
-            <div class="col-sm-7">
-                <input type="text" style="max-width:350px; height: 35px; " name="witness3_name" class="form-control" value="{{ $divorce->witness3_name }}" placeholder="Please Enter Full Name of the Witness" required>
-               
-            </div>
-        </div>
-        
-         <div class="row mb-3">
-            <label for="inputEmail" class="col-sm-5 col-form-label">Address of Witness</label>
-            <div class="col-sm-7 ">
-              <textarea rows="2" cols="35" id="multiLineInput" name="witness3_address" class="" placeholder="Address of Witness">
-                {{ $divorce->witness3_address }}
-              </textarea>
-               
-            </div>
-            
-        </div>
-      </div>
-
-      <div class="card-header">
-        <h5 class=" text-danger">DELIVERY DETAILS</h5>
-      </div>
-
-      <div class="card-body">
-        <p>Delivery Address</p>
-         <div class="row">
-          <div class="col-md-6">
-            <div class=" row mb-3">
-              <label for="exampleInput4" class=" col-sm-4 form-label">Flat / Room No.</label>
-              <div class="col-sm-8">
-                <input type="text" name="delivery_flat_no" value="{{ $divorce->delivery_flat_no }}" class="form-control col-sm-8" id="exampleInput4" placeholder="Flat / Room No." />
-              </div>
-              
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="row mb-3">
-               <label for="exampleInput4" class="col-sm-5 form-label">Road / Street Name</label>
-            <div class="col-sm-7">
-              <input type="text" name="delivery_road_name" value="{{ $divorce->delivery_road_name }}"  class="form-control" id="exampleInput4" placeholder="Road / Street Name" />
-            </div>
-            </div>
-           
-            
-          </div>
-        </div>
-
         <div class="row">
           <div class="col-md-6">
             <div class="row mb-3">
-              <label for="exampleInput4" class="form-label col-sm-4">Select State</label>
+              <label for="exampleInput4" class="form-label col-sm-4">Select Division</label>
               <div class="col-sm-8">
               <select id="exampleInput5" class="form-select mb-3 "style="width:200px; "name="husband_state">
                 <option value="barishal">Barishal</option>
@@ -372,57 +121,435 @@
                 <option value="sylhet">Sylhet</option>
                 
               </select>
+
+               
                  </div>
+                  @if ($errors->has('husband_state'))
+                    <span class="text-danger">{{ $errors->first('husband_state') }}</span>
+                @endif
             </div>
           </div>
 
           <div class="col-md-6">
             <div class="row mb-3">
-               <label for="exampleInput4" class="col-sm-5 form-label">City Name</label>
+               <label for="exampleInput4" class="col-sm-5 form-label">Upazila</label>
             <div class="col-sm-7">
-              <input type="text" name="delivery_city_name" value="{{ $divorce->delivery_city_name }}"  class="form-control" id="exampleInput4" placeholder="City Name" />
+              <input type="text" class="form-control" id="exampleInput4" name="husband_city_name" placeholder="City Name" value="{{$divorce->husband_city_name}}" />
+
+               @if ($errors->has('husband_city_name'))
+                    <span class="text-danger">{{ $errors->first('husband_city_name') }}</span>
+                @endif
+               
             </div>
+            
             </div>
         </div>
       </div>
 
-      <div class="row">
+        <div class="row">
+
+           <div class="col-md-6">
+            <div class="row mb-3">
+               <label for="exampleInput4" class="col-sm-6 form-label">Road / Street / Village Name</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="exampleInput4" name="husband_road_name" placeholder="Road / Street Name" value="{{$divorce->husband_road_name}}" />
+                @if ($errors->has('husband_road_name'))
+                    <span class="text-danger">{{ $errors->first('husband_road_name') }}</span>
+                @endif
+            </div>
+            </div>
+           
+            
+          </div>
+          <div class="col-md-6">
+            <div class=" row mb-3">
+              <label for="exampleInput4" class=" col-sm-4 form-label">Flat / Room No.</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control col-sm-8" id="exampleInput4" name="husband_flat_no" placeholder="Flat / Room No." value="{{$divorce->husband_flat_no}}" />
+                  @if ($errors->has('husband_flat_no'))
+                    <span class="text-danger">{{ $errors->first('husband_flat_no') }}</span>
+                @endif
+              </div>
+              
+            </div>
+          </div>
+
+         
+        </div>
+
+
+       <div class="row">
           <div class="col-md-6">
             <div class=" row mb-3">
               <label for="exampleInput4" class=" col-sm-4 form-label"> Pincode / Zipcode</label>
               <div class="col-sm-8">
-                <input type="text" name="delivery_pincode" value="{{ $divorce->delivery_pincode }}"  class="form-control col-sm-8" id="exampleInput4" placeholder=" Pincode / Zipcode" />
+                <input type="text" class="form-control col-sm-8" id="exampleInput4" name="husband_pincode" placeholder=" Pincode / Zipcode" value="{{$divorce->husband_pincode}}"/>
+                  @if ($errors->has('husband_pincode'))
+                    <span class="text-danger">{{ $errors->first('husband_pincode') }}</span>
+                @endif
               </div>
               
             </div>
           </div>
 
           
+        </div>
+      
+
+      <div class="card-header">
+        <h5 class=" text-danger">WIFE DETAILS</h5>
       </div>
-      <div class="row mt-3">
-          <div class="col-md-12">
+
+        <div class="card-body">
+          <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Wife </label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="wife_name" placeholder="Please Enter Full Name of the Husband" value="{{$divorce->wife_name}}">
+                  @if ($errors->has('wife_name'))
+                    <span class="text-danger">{{ $errors->first('wife_name') }}</span>
+                @endif
+            </div>
+        </div>
+          <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Religion</label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:200px; height: 35px; " class="form-control" id="inputEmail" name="wife_religion" placeholder="Religion" value="{{$divorce->wife_religion}}" >
+                  @if ($errors->has('wife_religion'))
+                    <span class="text-danger">{{ $errors->first('wife_religion') }}</span>
+                @endif
+            </div>
+        </div>
+          <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Date of Birth</label>
+            <div class="col-sm-7">
+                <input type="date" style="max-width:200px; height: 35px; " class="form-control" name="wife_birthday" value="{{$divorce->wife_birthday}}" >
+                  @if ($errors->has('wife_birthday'))
+                    <span class="text-danger">{{ $errors->first('wife_birthday') }}</span>
+                @endif
+            </div>
+        </div>
+
+         {{-- <div class="row ">
+            <label for="image" class="col-sm-5 col-form-label">Wife Image</label>
+            <div class="col-sm-7">
+                <input type="file" class="form-control" id="image" style="max-width:400px; height: 35px; " class="form-control" name="wife_image" >
+                 @if ($errors->has('wife_image'))
+                    <span class="text-danger">{{ $errors->first('wife_image') }}</span>
+                @endif
+                 
+                 <span class="text-primary" >Image dimension must be (600 X 600) pixels and maximum size 150kb. </span>
+                 
+            </div>
+            
+          </div>  
+        </div> --}}
+        
+        <div class="row mt-4">
+          <div class="col-md-6">
             <div class=" row mb-3">
-              <label for="exampleInput4" class=" col-sm-4 form-label"> Contact Number</label>
-              <div class="col-sm-8">
-                <input type="text" class="delivery_pincode" name="delivery_contact_number" value="{{ $divorce->delivery_contact_number }}"  class="form-control col-sm-8" id="exampleInput4" placeholder=" Enter Contact Number" />
+              <label for="exampleInput4" class=" col-sm-3 form-label"> Nid No</label>
+              <div class="col-sm-7">
+                <input id="Nid No" type="number" class="form-control col-sm-9" id="exampleInput4" name="wife_nid" placeholder=" Nid No" value="{{$divorce->wife_nid}}" />
+                  @if ($errors->has('wife_nid'))
+                    <span class="text-danger">{{ $errors->first('wife_nid') }}</span>
+                @endif
               </div>
               
             </div>
-          </div>    
-      </div>
-      <div class="row mt-3">
-          <div class="col-md-12">
-            <div class=" row mb-3">
-              <label for="exampleInput4" class=" col-sm-4 form-label"> Email</label>
+          </div>
+
+          {{-- <div class="col-md-6">
+              <div class="row ">
+            <label for="image" class="col-sm-4 col-form-label"> Wife Nid Photo</label>
+            <div class="col-sm-8">
+                <input type="file" class="form-control" id="image" style="max-width:400px; height: 35px; " class="form-control" name="wife_nid_image" >
+                
+                 <span class="text-primary" >Image dimension must be (600 X 600) pixels and maximum size 150kb. </span>
+            </div>
+             @if ($errors->has('wife_nid_image'))
+                     <span class="text-danger error-text mt-1">{{ $errors->first('wife_nid_image') }}</span>
+                @endif
+          </div> --}}
+        </div>
+
+        <h6>Permanent Address</h6>
+        <hr>
+
+         <div class="row">
+          <div class="col-md-6">
+            <div class="row mb-3">
+              <label for="exampleInput4" class="form-label col-sm-4">Select State</label>
               <div class="col-sm-8">
-                <input type="email" class="	delivery_email" class="form-control col-sm-8" name="delivery_email" value="{{ $divorce->delivery_email }}" id="exampleInput4" placeholder="abc@example.com" />
+               <select id="exampleInput5" class="form-select mb-3 "style="width:200px; "name="wife_state">
+                <option value="barishal">Barishal</option>
+                <option value="chattogram">Chattogram</option>
+                <option value="dhaka">Dhaka</option>
+                <option value="khulna">Khulna</option>
+                <option value="rajshahi">Rajshahi</option>
+                <option value="rangpur">Rangpur</option>
+                <option value="mymensingh">Mymensingh</option>
+                <option value="sylhet">Sylhet</option>
+                
+              </select>
+                @if ($errors->has('wife_state'))
+                    <span class="text-danger">{{ $errors->first('wife_state') }}</span>
+                @endif
+                 </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="row mb-3">
+               <label for="exampleInput4" class="col-sm-5 form-label">Upazila Name</label>
+              <div class="col-sm-7">
+                <input type="text" class="form-control" id="exampleInput4" name="wife_city_name" placeholder="City Name" value="{{$divorce->wife_city_name}}" />
+                  @if ($errors->has('wife_city_name'))
+                    <span class="text-danger">{{ $errors->first('wife_city_name') }}</span>
+                @endif
+              </div>
+           </div>
+        </div>
+      </div>
+
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="row mb-3">
+               <label for="exampleInput4" class="col-sm-6 form-label">Road / Street / Village Name</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="exampleInput4" name="wife_road_name" placeholder="Road / Street Name" value="{{$divorce->wife_road_name}}" />
+                @if ($errors->has('wife_road_name'))
+                    <span class="text-danger">{{ $errors->first('wife_road_name') }}</span>
+                @endif
+            </div>
+            </div>  
+          </div>
+
+          <div class="col-md-6">
+            <div class=" row mb-3">
+              <label for="exampleInput4" class=" col-sm-4 form-label">Flat / Room No.</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control col-sm-8" id="exampleInput4" name="wife_flat_no" placeholder="Flat / Room No."  value="{{$divorce->wife_flat_no}}"/>
+                  @if ($errors->has('wife_flat_no'))
+                    <span class="text-danger">{{ $errors->first('wife_flat_no') }}</span>
+                @endif
               </div>
               
             </div>
-          </div>    
+          </div>
+
+          
+        </div>
+
+       
+
+       <div class="row">
+          <div class="col-md-6">
+            <div class=" row mb-3">
+              <label for="exampleInput4" class=" col-sm-4 form-label"> Pincode / Zipcode</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control col-sm-8" id="exampleInput4" name="wife_pincode" placeholder=" Pincode / Zipcode" value="{{$divorce->wife_pincode}}" />
+                  @if ($errors->has('wife_pincode'))
+                    <span class="text-danger">{{ $errors->first('wife_pincode') }}</span>
+                @endif
+              </div>
+              
+            </div>
+          </div>
+
+          
+        </div>
+
+       
+
+      <div class="card-header">
+        <h5 class=" text-danger">WITNESS DETAILS</h5>
       </div>
-       <button type="submit" class="btn btn-primary btn-block">Submit</button>
+
+      <div class="card-body">
+         <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Husband Witness</label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="witness1_name" placeholder="Please Enter Full Name of the Witness" value="{{$divorce->witness1_name}}" >
+
+                  @if ($errors->has('witness1_name'))
+                    <span class="text-danger">{{ $errors->first('witness1_name') }}</span>
+                @endif
+               
+            </div>
+        </div>
+
+         <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Address of Husband Witness</label>
+            <div class="col-sm-7 ">
+              <textarea rows="2" cols="35" id="multiLineInput" name="witness1_address" class="" placeholder="Address of Witness">
+                 {{$divorce->witness1_address}}
+                </textarea>  
+              
+               @if ($errors->has('witness1_address'))
+                    <span class="text-danger">{{ $errors->first('witness1_address') }}</span>
+                @endif
+               
+            </div>
+            
+            
+        </div>
+        
+
+        <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Husband Witness</label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " name="witness2_name" class="form-control" placeholder="Please Enter Full Name of the Witness"  value="{{$divorce->witness2_name}}">
+
+                  @if ($errors->has('witness2_name'))
+                    <span class="text-danger">{{ $errors->first('witenss2_name') }}</span>
+                @endif
+               
+            </div>
+        </div>
+        
+         <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Address of Husband Witness</label>
+            <div class="col-sm-7 ">
+              <textarea rows="2" cols="35" id="multiLineInput" name="witness2_address" class="" placeholder="Address of Witness">
+                 {{$divorce->witness2_address}}
+              </textarea>
+
+                @if ($errors->has('witness2_address'))
+                    <span class="text-danger">{{ $errors->first('witness2_address') }}</span>
+                @endif
+              
+            </div>
+
+           
+            
+            
+        </div>
+        <hr>
+
+        <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Wife Witness</label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " name="witness3_name" class="form-control" placeholder="Please Enter Full Name of the Witness"  value="{{$divorce->witness3_name}}" >
+
+                  @if ($errors->has('witness3_name'))
+                    <span class="text-danger">{{ $errors->first('witness3_name') }}</span>
+                @endif
+               
+            </div>
+        </div>
+        
+         <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Address of Wife Witness</label>
+            <div class="col-sm-7 ">
+              <textarea rows="2" cols="35" id="multiLineInput" name="witness3_address" class="" placeholder="Address of Witness">
+                 {{$divorce->witness3_address}}
+              </textarea>
+
+               @if ($errors->has('witness3_address'))
+                    <span class="text-danger">{{ $errors->first('witness3_address') }}</span>
+                @endif
+
+               
+            </div>
+            
+               
+            
+        </div>
+        <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Wife Witness</label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " name="witness4_name" class="form-control" placeholder="Please Enter Full Name of the Witness"  value="{{$divorce->witness4_name}}" >
+                  @if ($errors->has('witness4_name'))
+                    <span class="text-danger">{{ $errors->first('witness4_name') }}</span>
+                @endif
+               
+            </div>
+        </div>
+        
+         <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Address of Wife Witness</label>
+            <div class="col-sm-7 ">
+              <textarea rows="2" cols="35" id="multiLineInput" name="witness4_address" class="" placeholder="Address of Witness">
+                 {{$divorce->witness4_address}}
+                </textarea> 
+              
+              @if ($errors->has('witness4_address'))
+                    <span class="text-danger">{{ $errors->first('witness4_address') }}</span>
+                @endif
+            </div>
+               
+            
+        </div>
       </div>
+
+       <div class="card-header">
+        <h5 class=" text-danger">DELIVERY DETAILS</h5>
+      </div>
+
+      <div class="card-body">
+        <h6>Delivery Address</h6> 
+        
+
+      <div class="row mt-2">
+          <div class="col-md-6">
+            <div class=" row mb-3">
+              <label for="exampleInput4" class=" col-sm-5 form-label">Husband Contact Number </label>
+              <div class="col-sm-7">
+                <input type="text" name="husband_contact_number" class="form-control col-sm-8" id="exampleInput4" placeholder=" Husband Contact Number"  value="{{$divorce->husband_contact_number}}" />
+                  @if ($errors->has('husband_contact_number'))
+                    <span class="text-danger">{{ $errors->first('husband_contact_number') }}</span>
+                @endif
+              </div>
+              
+            </div>
+          </div>
+            <div class="col-md-6">
+            <div class=" row mb-3">
+              <label for="exampleInput4" class=" col-sm-5 form-label"> Husband Email Address</label>
+              <div class="col-sm-7">
+                <input type="text" name="husband_email" class="form-control col-sm-8" id="exampleInput4" placeholder=" abc@email.com" value="{{$divorce->husband_email}}" />
+                @if ($errors->has('husband_email'))
+                    <span class="text-danger">{{ $errors->first('husband_email') }}</span>
+                @endif
+              </div>
+              
+            </div>
+          </div>
+          
+      </div> 
+       <div class="row mt-2">
+          <div class="col-md-6">
+            <div class=" row mb-3">
+              <label for="exampleInput4" class=" col-sm-5 form-label">Wife Contact Number </label>
+              <div class="col-sm-7">
+                <input type="text" name="wife_contact_number" class="form-control col-sm-8" id="exampleInput4" placeholder=" Wife Contact Number" value="{{$divorce->wife_contact_number}}" />
+                @if ($errors->has('wife_contact_number'))
+                    <span class="text-danger">{{ $errors->first('wife_contact_number') }}</span>
+                @endif
+              </div>
+              
+            </div>
+          </div>
+            <div class="col-md-6">
+            <div class=" row mb-3">
+              <label for="exampleInput4" class=" col-sm-5 form-label"> Wife Email Address</label>
+              <div class="col-sm-7">
+                <input type="text" name="wife_email" class="form-control col-sm-8" id="exampleInput4" placeholder="abc@gmail.com" value="{{$divorce->wife_email}}" />
+                @if ($errors->has('wife_email'))
+                    <span class="text-danger">{{ $errors->first('wife_email') }}</span>
+                @endif
+              </div>
+              
+            </div>
+          </div>
+          
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Submit</button>
+     </div>
+       
+      </div>
+      
 
        
 
