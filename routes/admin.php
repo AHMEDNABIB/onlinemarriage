@@ -86,25 +86,27 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::resource('divorce', DivorceController::class);
 
 
+
+
           //   Remarriage
-          // Route::get('marriage/permission', [\App\Http\Controllers\Admin\MarriageController::class, 'permission'])->name('marriage.permission');
+          Route::get('marriage/permission', [MarriageController::class, 'permission'])->name('marriage.permission');
 
-          // Route::post('marriage/permission', [\App\Http\Controllers\Admin\MarriageController::class, 'check_permission'])->name('marriage.permission');
-
-
-          // Route::get('marriage/divorce', [\App\Http\Controllers\Admin\MarriageController::class, 'divorce'])->name('marriage.divorce');
-          // Route::post('marriage/divorce', [\App\Http\Controllers\Admin\MarriageController::class, 'check_divorce'])->name('marriage.divorce');
+          Route::get('marriage/check/permission', [MarriageController::class, 'check_permission'])->name('marriage.check.permission');
 
 
-          // Route::get('marriage/death', [\App\Http\Controllers\Admin\MarriageController::class, 'death'])->name('marriage.death');
-          // Route::post('marriage/death', [\App\Http\Controllers\Admin\MarriageController::class, 'check_death'])->name('marriage.death');
+          Route::get('marriage/divorce', [MarriageController::class, 'divorce'])->name('marriage.divorce');
+          Route::get('marriage/check/divorce', [MarriageController::class, 'check_divorce'])->name('marriage.check.divorce');
+
+
+          Route::get('marriage/death', [MarriageController::class, 'death'])->name('marriage.death');
+          Route::get('marriage/check/death', [MarriageController::class, 'check_death'])->name('marriage.check.death');
 
 
         // Marriage
         //   Route::post('marriage/add', [\App\Http\Controllers\Admin\MarriageController::class, 'add'])->name('marriage.add');
         // Route::resource('marriage', \App\Http\Controllers\Admin\MarriageController::class);
 
-        Route::post('marriage/save', [MarriageController::class, 'store'])->name('marriage.hello');
+        Route::post('marriage/save', [MarriageController::class, 'store'])->name('marriage.store');
         Route::get('marriage/new', [MarriageController::class, 'add'])->name('marriage.new');
         Route::get('marriage', [MarriageController::class, 'check_new'])->name('marriage.check');
 

@@ -67,7 +67,7 @@
 
                 {{-- ReMarriage --}}
 
-                {{-- <li>
+                <li>
                     <a href="javascript:;" class="has-arrow"><i class="bx bx-right-arrow-alt"> </i>Remarriage</a>
                     <ul>
                         <li>
@@ -81,7 +81,7 @@
                         </li>
                         
                     </ul>
-                </li> --}}
+                </li>
 
 
                

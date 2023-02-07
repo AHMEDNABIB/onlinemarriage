@@ -68,7 +68,7 @@ class MarriageController extends Controller
     }
 
 
-      public function death(){
+    public function death(){
       return view('admin.marriage.remarriage.death');
     
     }

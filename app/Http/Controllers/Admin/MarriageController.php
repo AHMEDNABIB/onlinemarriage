@@ -12,6 +12,96 @@ use Illuminate\Support\Facades\Notification;
 
 class MarriageController extends Controller
 {
+
+
+    // remarriage
+    public function permission(){
+      return view('admin.marriage.remarriage.permission');
+    }
+
+    public function check_permission(Request $request){
+
+         $request->validate([
+            'wife_permission_no' => 'required',
+            
+        ]);
+
+        $check_permission = $request->wife_permission_no;
+        
+        $wife_permission = Marriage::where('wife_permission_no',$check_permission)->first();
+
+        // dd($wife_permission);
+
+        if ( $wife_permission) {
+             Toastr::success('You can Register for New Marriage', 'Success!');
+            return view('admin.marriage.add');
+        } else {
+             Toastr::error('You are not eligible for New marriage ', 'Danger!');
+            // return view('admin.marriage.remarriage.permission');
+            return redirect()->back();
+        }
+        
+    }
+
+     public function divorce(){
+      return view('admin.marriage.remarriage.divorce');
+    }
+
+    public function check_divorce(Request $request){
+
+         $request->validate([
+            'divorce_no' => 'required',
+            
+        ]);
+        $check_divorce = $request->divorce_no;
+        
+        $divorce = Marriage::where('divorce_no',$check_divorce)->where('status', 'divorce')->first();
+
+        // dd($divorce);
+
+        if ( $divorce) {
+             Toastr::success('You can Register for New Marriage', 'Success!');
+            return view('admin.marriage.add');
+        } else {
+             Toastr::error('You are not eligible for New marriage ', 'Danger!');
+            // return view('admin.marriage.remarriage.permission');
+            return redirect()->back();
+        }
+        
+    }
+
+
+    public function death(){
+      return view('admin.marriage.remarriage.death');
+    
+    }
+
+    public function check_death(Request $request){
+
+        $request->validate([
+            'death_no' => 'required',
+            
+        ]);
+
+        $check_death = $request->death_no;
+        
+        $death = Marriage::where('death_no',$check_death)->first();
+
+       
+
+        if ( $death) {
+             Toastr::success('You can Register for New Marriage', 'Success!');
+            return view('admin.marriage.add');
+        } else {
+             Toastr::error('You are not eligible for New marriage ', 'Danger!');
+            // return view('admin.marriage.remarriage.permission');
+            return redirect()->back();
+        }
+        
+    }
+
+    // end of remarriage
+
     public function add(){
          return view('admin.marriage.new_marriage');
     }
@@ -49,14 +139,9 @@ class MarriageController extends Controller
         return view('admin.marriage.index', compact('all_marriage'));
     }
 
-     public function store(Request $request)
+     public function store(MarriageRequest $request)
     {
-        // $request->validate([
-        //     'husband_name' => 'required',
-        //     //'phone' => 'required',
-        //     //'address' => 'required',
-        //     'husband_image' => ['required', 'mimes:jpeg,png,jpg,', 'max:500'],
-        // ]);
+        
          
 
         $husband_image = $request->file('husband_image');
