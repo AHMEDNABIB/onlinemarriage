@@ -28,7 +28,8 @@
                                     <th class="text-left">Wife Name</th>
                                     <th class="text-left">Husband Nid No</th>
                                     <th class="text-left">Wife Nid No</th>
-                                    <th class="text-left">Image</th>
+                                    <th class="text-left">Status</th>
+                                    
                                    
                                     
                                     <th class="text-center">Action</th>
@@ -44,13 +45,8 @@
                                     <td class="text-left">{{ $value->wife_name }}</td>
                                     <td class="text-left">{{ $value->husband_nid }}</td>
                                     <td class="text-left">{{ $value->wife_nid }}</td>
-                                     <td class="text-center">
-                                        <div class="d-flex align-items-center justify-content-center">
-                                            <div class="recent-product-img">
-                                                <img src="{{ asset($value->husband_image) }}" alt="">
-                                            </div>
-                                        </div>
-                                    </td>
+                                    <td class="text-left">{{ $value->status }}</td>
+                                     
                                     <td class="text-center">
 
                                         <div class="d-flex order-actions justify-content-center">
@@ -63,12 +59,12 @@
                                                 <i class="lni lni-trash"></i>
                                             </a> --}}
                                             
-                                            {{-- <form  action="{{ route('admin.marriage.destroy', $value->id ) }}" method="post">
+                                            <form  action="{{ route('admin.marriage.destroy', $value->id ) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                  <input name="_method" type="hidden" value="DELETE">
                                             <button  type="submit"  class="p-1 btn bg-danger text-white mx-0 show_confirm " ><i class="lni lni-trash"></i></button>
-                                           </form> --}}
+                                           </form>
                                         </div>
                                     </td>
                                 </tr>

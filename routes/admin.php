@@ -106,11 +106,13 @@ Route::prefix('admin')->name('admin.')->group(function(){
         //   Route::post('marriage/add', [\App\Http\Controllers\Admin\MarriageController::class, 'add'])->name('marriage.add');
         // Route::resource('marriage', \App\Http\Controllers\Admin\MarriageController::class);
 
-        Route::post('marriage/save', [MarriageController::class, 'store'])->name('marriage.store');
+        
         Route::get('marriage/new', [MarriageController::class, 'add'])->name('marriage.new');
         Route::get('marriage', [MarriageController::class, 'check_new'])->name('marriage.check');
 
         Route::get('marriage/index', [MarriageController::class, 'index'])->name('marriage.index');
+        Route::post('marriage/save', [MarriageController::class, 'store'])->name('marriage.store');
+        Route::delete('/marriage/delete/{id}', [MarriageController::class, 'destroy'])->name('marriage.destroy');
 
         
       

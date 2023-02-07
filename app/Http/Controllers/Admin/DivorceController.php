@@ -158,13 +158,7 @@ class DivorceController extends Controller
      */
     public function store(MarriageRequest $request)
     {    
-        // dd($request->all());
-        //  $request->validate([
-        //     'husband_name' => 'required',
-        //     //'phone' => 'required',
-        //     //'address' => 'required',
-        //     'husband_image' => ['required', 'mimes:jpeg,png,jpg,', 'max:500'],
-        // ]);
+        
 
         $email1 = $request->husband_email;
         $email2 = $request->wife_email;
@@ -386,18 +380,7 @@ class DivorceController extends Controller
         Toastr::warning('Divorce Deleted Successfully', 'Deleted!');
         return redirect()->route('admin.divorce.index');
 
-        // if ($request->ajax()){
-
-        //     $user = User::findOrFail($id);
-
-        //     if ($user){
-
-        //         $user->delete();
-
-        //         return response()->json(array('success' => true));
-        //     }
-
-        // }
+       
     }
 
     

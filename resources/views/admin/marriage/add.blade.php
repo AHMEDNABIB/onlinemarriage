@@ -19,7 +19,7 @@
                     <div class="card-body">
                         
                         <div class="border p-4 rounded">
-                               <form action="{{ route('admin.divorce.store') }}" method="POST" enctype="multipart/form-data">
+                               <form action="{{ route('admin.marriage.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
        <div class="card-header">
         <h5 class=" text-danger">HUSBAND DETAILS</h5>

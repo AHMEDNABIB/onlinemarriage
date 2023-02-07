@@ -143,6 +143,27 @@ class MarriageController extends Controller
     {
         
          
+        $email1 = $request->husband_email;
+        $email2 = $request->wife_email;
+
+        $kazi = 'kazi@gmail.com';
+        $governer = 'goberner@gmail.com';
+
+        $email = array($email1, $email2,$kazi,$governer);
+
+        // dd($email1, $email2, $email);
+
+     
+        $project = [
+            // 'greeting' => 'Hi ',
+            'greeting' => 'Congratulation '.$request->wife_name.' "And" '.$request->husband_name.',',
+
+            'body' => 'You Are Married',
+            
+        ];
+        foreach($email as $key => $user ){
+            Notification::route('mail', $user)->notify(new EmailNotification($project));
+        }
 
         $husband_image = $request->file('husband_image');
         $image_path = public_path('images/marriage/');
@@ -174,13 +195,11 @@ class MarriageController extends Controller
 
 
 
-        $input = [
-           
-            
+        $input = [            
             'reg_no' => random_int(100000, 999999),
-            'divorce_no' => random_int(100000, 999999),
-            'death_no' => random_int(100000, 999999),
-            'wife_permission_no' => random_int(100000, 999999),
+            // 'divorce_no' => random_int(100000, 999999),
+           // 'death_no' => random_int(100000, 999999),
+            //'wife_permission_no' => random_int(100000, 999999),
             'status'=>'married',
 
             'husband_nid'=>$request->husband_nid,
@@ -229,5 +248,15 @@ class MarriageController extends Controller
         Toastr::success('Saved Successfully', 'Success!');
          return redirect()->route('admin.marriage.index');
         // return redirect()->back();
+    }
+
+    public function destroy(Request $request,$id)
+    {    
+        //   dd($id);
+         Marriage::findOrFail($id)->delete();
+        Toastr::warning('Marriage Deleted Successfully', 'Deleted!');
+        return redirect()->route('admin.marriage.index');
+
+       
     }
 }
