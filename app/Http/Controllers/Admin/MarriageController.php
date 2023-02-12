@@ -117,18 +117,42 @@ class MarriageController extends Controller
         $husband_nid = $request->husband_nid;
         $wife_nid = $request->wife_nid;
 
-        // dd($husband_nid, $wife_nid);
+       
       
-         $marriage = Marriage::where('husband_nid',$husband_nid)->where('wife_nid',$wife_nid)->where('status','married')->first();
+        //  $marriage = Marriage::where('husband_nid',$husband_nid)->where('wife_nid',$wife_nid)->where('status','married')->first();
+
+          $marriage_husband = Marriage::where('husband_nid',$husband_nid)->where('status','married')->first();
+
+          $marriage_wife = Marriage::where('wife_nid',$wife_nid)->where('status','married')->first();
+
            
-        //    dd($marriage);
-          if ($marriage == null) {
+        
+
+           if ($marriage_husband == null && $marriage_wife== null) {
+             
             Toastr::success('You can Register for New Marriage', 'Success!');
             return view('admin.marriage.add');
-         } else {
+           
+         } 
+         elseif (($marriage_husband == null && $marriage_wife != null)) {
             Toastr::error('You are not eligible for New marriage ', 'Danger!');
             return view('admin.marriage.new_marriage');
+
+         } 
+       elseif ($marriage_husband != null && $marriage_wife == null) {
+              Toastr::error('You are not eligible for New marriage ', 'Danger!');
+              return view('admin.marriage.new_marriage');
          }
+        else {
+           
+              Toastr::error('You are not eligible for New marriage ', 'Danger!');
+              return view('admin.marriage.new_marriage');
+         }
+
+        
+        
+            
+       
          
     }
 

@@ -28,7 +28,8 @@ class HomeController extends Controller
     //index page
     public function index()
     {
-        return view('admin.auth.login');
+         return view('admin.auth.login');
+        // return view('home');
     }
 
 }
