@@ -117,19 +117,12 @@ class MarriageController extends Controller
         $husband_nid = $request->husband_nid;
         $wife_nid = $request->wife_nid;
 
-       
-      
-        //  $marriage = Marriage::where('husband_nid',$husband_nid)->where('wife_nid',$wife_nid)->where('status','married')->first();
+        $marriage_husband = Marriage::where('husband_nid',$husband_nid)->where('status','married')->first();
 
-          $marriage_husband = Marriage::where('husband_nid',$husband_nid)->where('status','married')->first();
+        $marriage_wife = Marriage::where('wife_nid',$wife_nid)->where('status','married')->first();
 
-          $marriage_wife = Marriage::where('wife_nid',$wife_nid)->where('status','married')->first();
-
-           
-        
-
-           if ($marriage_husband == null && $marriage_wife== null) {
-             
+        if ($marriage_husband == null && $marriage_wife== null) {
+         
             Toastr::success('You can Register for New Marriage', 'Success!');
             return view('admin.marriage.add');
            
@@ -140,34 +133,40 @@ class MarriageController extends Controller
 
          } 
        elseif ($marriage_husband != null && $marriage_wife == null) {
-              Toastr::error('You are not eligible for New marriage ', 'Danger!');
-              return view('admin.marriage.new_marriage');
+            Toastr::error('You are not eligible for New marriage ', 'Danger!');
+            return view('admin.marriage.new_marriage');
          }
         else {
            
-              Toastr::error('You are not eligible for New marriage ', 'Danger!');
-              return view('admin.marriage.new_marriage');
+            Toastr::error('You are not eligible for New marriage ', 'Danger!');
+            return view('admin.marriage.new_marriage');
          }
 
-        
-        
-            
-       
-         
     }
 
      public function index()
     {
-         $all_marriage = Marriage::all()->where('status', 'married');
+        $all_marriage = Marriage::all()->where('status', 'married');
 
-        
         return view('admin.marriage.index', compact('all_marriage'));
     }
 
-     public function store(MarriageRequest $request)
+     public function store(Request $request)
     {
-        
-         
+        // Calculate Age
+        $dateOfBirthHusband = $request->husband_birthday;
+        $today = date("Y-m-d");
+        $diff1 = date_diff(date_create($dateOfBirthHusband), date_create($today));
+
+        $dateOfBirthWife = $request->wife_birthday;
+        $today = date("Y-m-d");
+        $diff2 = date_diff(date_create($dateOfBirthWife), date_create($today));
+
+        $husband_age = (int)$diff1->format('%y');
+        $wife_age = (int)$diff2->format('%y');
+
+
+        //  Email Notification
         $email1 = $request->husband_email;
         $email2 = $request->wife_email;
 
@@ -186,10 +185,8 @@ class MarriageController extends Controller
             'body' => 'You Are Married',
             
         ];
-        foreach($email as $key => $user ){
-            Notification::route('mail', $user)->notify(new EmailNotification($project));
-        }
-
+       
+        // Create Image 
         $husband_image = $request->file('husband_image');
         $image_path = public_path('images/marriage/');
         $husband_image_name = rand(100000, 999999)."marriage." . $husband_image->getClientOriginalExtension();
@@ -267,12 +264,26 @@ class MarriageController extends Controller
            'wife_email'=>$request->wife_email,
             
         ];
-    
-         Marriage::create($input);
 
-        Toastr::success('Saved Successfully', 'Success!');
-         return redirect()->route('admin.marriage.index');
-        // return redirect()->back();
+
+        
+         if ($husband_age >=21 && $wife_age>= 18){
+            foreach($email as $key => $user ){
+                Notification::route('mail', $user)->notify(new EmailNotification($project));
+            }
+            Marriage::create($input);
+
+            Toastr::success('Saved Successfully', 'Success!');
+            return redirect()->route('admin.marriage.index');
+        }else{  
+
+            Toastr::error('Age should be 21 for husband and 18 for wife ', 'Danger!');
+            return redirect()->route('admin.marriage.new');
+
+        }
+    
+        
+        
     }
 
      public function edit($id)

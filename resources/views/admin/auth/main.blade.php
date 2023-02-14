@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>NSTU Admission | 2021-2022</title>
-    <link rel="shortcut icon" href="{{ asset('logos/nstu-logo.jpg') }}" type="image/x-icon">
+    <title>Online Marrige</title>
+    {{-- <link rel="shortcut icon" href="{{ asset('logos/nstu-logo.jpg') }}" type="image/x-icon"> --}}
     <!-- Custom fonts for this template-->
     <!-- Custom styles for this template-->
     <link href="{{ asset('admin/css/newstyle.css') }}" rel="stylesheet">
