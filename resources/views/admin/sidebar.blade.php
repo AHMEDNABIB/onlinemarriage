@@ -85,6 +85,9 @@
 
 
                 <li>
+                    <a href="{{ route('admin.marriage.dowanload') }}" class="{{ request()->path() == 'admin/marriage/dowanload' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i> Marriage Dowanlaod From</a>
+                </li>
+                <li>
                     <a href="{{ route('admin.marriage.rules') }}" class="{{ request()->path() == 'admin/marriage/rules' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i> Marriage Rules</a>
                 </li>
 

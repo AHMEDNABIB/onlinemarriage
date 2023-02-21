@@ -9,19 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
    
-  <style>
-
-    @media print {
-  body{
-        width: 21cm;
-        height: 29.7cm;
-        margin: 30mm 45mm 30mm 45mm; 
-        /* change the margins as you want them to be. */
-   } 
-}
-    
-
-  </style>
+  
 
 </head>
 <body class="page">
@@ -39,7 +27,13 @@
         <tr  >
             <th class="align-middle" width="20% ">Complete Address of Marriage*</th>
             <td class="align-middle" width="40%"></td>
-            <td class="align-middle" rowspan="2" height="200px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ullam fuga animi quod at quis officiis, nemo repellendus incidunt nihil!</td>
+            <td class="align-middle" rowspan="2" height="200px">
+                <div class="d-flex justify-content-between">
+                  
+                  <img height="200px" width="100px" src="{{ public_path($dowanload->husband_image) }}" alt="">
+                  <img height="200px" width="100px" src="{{ public_path($dowanload->wife_image) }}" alt="">
+                </div>
+            </td>
         </tr>
 
         
@@ -56,10 +50,11 @@
         </tr>
         <tr>
             <th>Name*</th>
-            <th></th>
-            <th></th>
+            
+            <th>{{$dowanload->husband_name}}</th>
+            <th>{{$dowanload->wife_name}}</th>
         </tr>
-        <tr>
+        {{-- <tr>
             <th>Father's Name*</th>
             <th></th>
             <th></th>
@@ -68,38 +63,39 @@
             <th>Mother's Name*</th>
             <th></th>
             <th></th>
-        </tr>
+        </tr> --}}
         <tr>
             <th>Date of Birth*</th>
-            <th></th>
-            <th></th>
+            <th>{{$dowanload->husband_birthday}}</th>
+            <th>{{$dowanload->wife_birthday}}</th>
         </tr>
         <tr>
             <th>Gender*</th>
             <th>Male</th>
             <th>Female</th>
         </tr>
-        <tr>
+        {{-- <tr>
             <th>Mark of Identity*</th>
             <th></th>
             <th></th>
-        </tr>
+        </tr> --}}
         <tr>
             <th>Mobile Number*</th>
-            <th></th>
-            <th></th>
+            <th>{{$dowanload->husband_contact_number}}</th>
+            <th>{{$dowanload->wife_contact_number}}</th>
         </tr>
         <tr>
-            <th>Aadhaar No*</th>
-            <th></th>
-            <th></th>
+            <th>Nid No*</th>
+            <th>{{$dowanload->husband_nid}}</th>
+            <th>{{$dowanload->wife_nid}}</th>
+            
         </tr>
         <tr>
             <th>Email Id*</th>
-            <th></th>
-            <th></th>
+            <th>{{$dowanload->husband_email}}</th>
+            <th>{{$dowanload->wife_email}}</th>
         </tr>
-        <tr>
+        {{-- <tr>
             <th>Marital Status*</th>
             <th>
                 <div class="d-flex flex-sm-row-reverse flex-column justify-content-around ">
@@ -117,47 +113,51 @@
                     <span><input type="checkbox"> Widow</span>
                 </div>
             </th>
-        </tr>
-        <tr>
+        </tr> --}}
+        {{-- <tr>
             <th>Nationality*</th>
             <th></th>
             <th></th>
-        </tr>
+        </tr> --}}
         <tr>
-            <th>Region*</th>
-            <th></th>
-            <th></th>
+            <th>Religion*</th>
+             <th>{{$dowanload->husband_religion}}</th>
+             <th>{{$dowanload->wife_religion}}</th>
+            
         </tr>
-        <tr>
+        {{-- <tr>
             <th>Occupation*</th>
             <th></th>
             <th></th>
-        </tr>
+        </tr> --}}
         <tr class="bg-dark text-white">
             <th></th>
             <th class="text-center">Bride's Address</th>
             <th class="text-center">Groom's Address</th>
         </tr>
         <tr>
-            <th>Country*</th>
-            <th></th>
-            <th></th>
-        </tr>
-        <tr>
             <th>State*</th>
-            <th></th>
-            <th></th>
+            <th>{{$dowanload->husband_state}}</th>
+            <th>{{$dowanload->wife_state}}</th>
+            
         </tr>
         <tr>
-            <th>Permanent Address*</th>
-            <th></th>
-            <th></th>
+            <th>Upazila*</th>
+            <th>{{$dowanload->husband_city_name}}</th>
+            <th>{{$dowanload->wife_city_name}}</th>
+        
         </tr>
         <tr>
-            <th>Temporary Address*</th>
-            <th></th>
-            <th></th>
+            <th>Pincode*</th>
+            <th>{{$dowanload->husband_pincode}}</th>
+            <th>{{$dowanload->wife_pincode}}</th>
         </tr>
+        <tr>
+            <th>Address*</th>
+            <th>{{$dowanload->husband_flat_no}}, {{$dowanload->husband_road_name}} </th>
+            <th>{{$dowanload->wife_flat_no}}, {{$dowanload->wife_road_name}} </th>
+        </tr>
+       
         <tr>
             <td colspan="3">
                 <p style="text-align:justify;">
@@ -185,10 +185,11 @@
         </tr>
         <tr>
             <th>Name*</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{$dowanload->witness1_name}}</td>
+            <td>{{$dowanload->witness2_name}}</td>
+            <td>{{$dowanload->witness3_name}}</td>
+            <td>{{$dowanload->witness4_name}}</td>
+            
         </tr>
         <!-- <tr>
             <th>Father's/Husband's Name*</th>
@@ -201,26 +202,37 @@
             <th>Relation With*</th>
             <th>
                 <div class="d-flex justify-content-around flex-md-row-reverse flex-column ">
-                    <span><input type="checkbox" value="Bride">Bride</span>
-                    <span><input type="checkbox" value="Groom">Groom</span>
+
+                    @if ($dowanload->witness1_name)
+                    <span><input type="checkbox" value="Grom"
+                       {{  ($dowanload->witness1_name ? ' checked' : '') }}
+                        >Groom</span>
+                   
+                    @endif
+                   
+                    
                 </div>
             </th>
             <th>
                 <div class="d-flex justify-content-around flex-md-row-reverse flex-column ">
-                    <span><input type="checkbox" value="Bride">Bride</span>
-                    <span><input type="checkbox" value="Groom">Groom</span>
+                    @if ($dowanload->witness2_name)
+                    <span><input type="checkbox" value="Groom"   {{  ($dowanload->witness2_name ? ' checked' : '') }}>Groom</span>
+                    @endif
+                    
                 </div>
             </th>
             <th>
                 <div class="d-flex justify-content-around flex-md-row-reverse flex-column ">
-                    <span><input type="checkbox" value="Bride">Bride</span>
-                    <span><input type="checkbox" value="Groom">Groom</span>
+                    @if ($dowanload->witness3_name)
+                    <span><input type="checkbox" value="Groom"   {{  ($dowanload->witness3_name ? ' checked' : '') }}>Bride</span>
+                    @endif
                 </div>
             </th>
             <th>
                 <div class="d-flex justify-content-around flex-md-row-reverse flex-column ">
-                    <span><input type="checkbox" value="Bride">Bride</span>
-                    <span><input type="checkbox" value="Groom">Groom</span>
+                    @if ($dowanload->witness4_name)
+                    <span><input type="checkbox" value="Groom"   {{  ($dowanload->witness4_name ? ' checked' : '') }}>Bride</span>
+                    @endif
                 </div>
             </th>
         </tr>
@@ -242,10 +254,11 @@
         
         <tr>
             <th>Address*</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{$dowanload->witness1_address}}</td>
+            <td>{{$dowanload->witness2_address}}</td>
+            <td>{{$dowanload->witness3_address}}</td>
+            <td>{{$dowanload->witness4_address}}</td>
+            
         </tr>
         <!-- <tr>
             <th>Signature*</th>

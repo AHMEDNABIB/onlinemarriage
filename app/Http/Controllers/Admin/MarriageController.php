@@ -20,16 +20,40 @@ class MarriageController extends Controller
     }
 //    export pdf
 
-     public function export_image_pdf(){
-        
+     public function export_marriage_check(){
           
-          $pdf = PDF::loadView('admin.marriage.marriage_pdf');
-        
+       return view('admin.marriage.dowanload');
+     }
 
-      
+     public function export_marriage_pdf(Request $request){
+          
+        // dd($request->all());
+
+           $request->validate([
+            'reg_no' => 'required|numeric',
+            
+        ]);
+         $check_reg_no= $request->reg_no;
         
-    
+        $dowanlaod = Marriage::where('reg_no',$check_reg_no)->where('status', 'married')->first();
+
+        //   dd($dowanlaod);
+
+          if($dowanlaod){
+
+            $data = [
+            'title' => 'Welcome to LaravelTuts.com',
+            'date' => date('m/d/Y'),
+             'dowanload' => $dowanlaod,
+        ]; 
+         $pdf = PDF::loadView('admin.marriage.marriage_pdf', $data);
+        
         return $pdf->download('marriage.pdf');
+          } else {
+             Toastr::error('Your Registration number is not correct ', 'Danger!');
+            // return view('admin.marriage.remarriage.permission');
+            return redirect()->back();
+        }
      }
 
     // remarriage
@@ -68,7 +92,7 @@ class MarriageController extends Controller
     public function check_divorce(Request $request){
 
          $request->validate([
-            'divorce_no' => 'required',
+            'divorce_no' => 'required|numeric',
             
         ]);
         $check_divorce = $request->divorce_no;

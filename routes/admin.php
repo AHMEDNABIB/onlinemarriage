@@ -116,7 +116,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::delete('/marriage/delete/{id}', [MarriageController::class, 'destroy'])->name('marriage.destroy');
 
 
-         Route::get('marriage/pdf', [MarriageController::class, 'export_image_pdf'])->name('marriage.pdf');
+         Route::get('marriage/dowanload', [MarriageController::class, 'export_marriage_check'])->name('marriage.dowanload');
+         Route::get('marriage/pdf', [MarriageController::class, 'export_marriage_pdf'])->name('marriage.pdf');
+
          Route::get('marriage/rules', [MarriageController::class, 'rules'])->name('marriage.rules');
 
 
