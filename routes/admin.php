@@ -77,13 +77,16 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
         // Divorce
 
-        
+         Route::get('divorce/dowanload', [DivorceController::class, 'export_divorce_check'])->name('divorce.dowanload');
+         Route::get('divorce/pdf', [DivorceController::class, 'export_divorce_pdf'])->name('divorce.pdf');
 
         Route::get('divorce/add', [DivorceController::class, 'add'])->name('divorce.add');
         Route::get('divorce/save', [DivorceController::class, 'save'])->name('divorce.save');
         Route::put('divorce/annulment/{id}', [DivorceController::class, 'annulment'])->name('divorce.annulment');
 
         Route::resource('divorce', DivorceController::class);
+
+        
 
 
 

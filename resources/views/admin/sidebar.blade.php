@@ -112,6 +112,9 @@
                     <a href="{{ route('admin.divorce.add') }}" class="{{ request()->path() == 'admin/divorce/add' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Divorce Annulment</a>
                 </li>
                 <li>
+                    <a href="{{ route('admin.divorce.dowanload') }}" class="{{ request()->path() == 'admin/divorce/dowanload' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i> Divorce Dowanlaod From</a>
+                </li>
+                <li>
                     <a href="{{ route('admin.divorce.index') }}" class="{{ request()->path() == 'admin/divorce/' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>All Divorce</a>
                 </li>
                

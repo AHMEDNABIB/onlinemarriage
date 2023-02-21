@@ -15,7 +15,7 @@
 									</div>
                                 @endif
 								<div class="border p-4 rounded">
-									<form action="{{ route('admin.marriage.pdf') }}" method="GET" enctype="multipart/form-data">
+									<form action="{{ route('admin.divorce.pdf') }}" method="GET" enctype="multipart/form-data">
                                     
 									<div class="card-title d-flex align-items-center">
 										<div><i class="bx bxs-user me-1 font-22 text-info"></i>
@@ -24,9 +24,9 @@
 									</div>
 									<hr/>
 									<div class="row mb-3">
-										<label for="inputEnterYourName" class="col-sm-4 col-form-label">Enter Marriage Registration No</label>
+										<label for="inputEnterYourName" class="col-sm-4 col-form-label">Enter Divorce Registration No</label>
 										<div class="col-sm-8">
-											<input type="text" name="reg_no" class="form-control"  placeholder="Enter Your Marriage Registration No">
+											<input type="text" name="divorce_no" class="form-control"  placeholder="Enter Your Divorce Registration No">
 										</div>	
 									</div>
 									

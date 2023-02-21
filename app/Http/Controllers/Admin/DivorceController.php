@@ -7,10 +7,54 @@ use Illuminate\Http\Request;
 use App\Models\Marriage;
 use App\Http\Requests\MarriageRequest;
 use Toastr;
+use PDF;
 use App\Notifications\EmailNotification;
 use Illuminate\Support\Facades\Notification;
 class DivorceController extends Controller
 {   
+    
+    //    export pdf
+
+     public function export_divorce_check(){
+        //   dd('hello');
+       return view('admin.divorce.dowanload');
+     }
+
+     public function export_divorce_pdf(Request $request){
+          
+        // dd($request->all());
+
+           $request->validate([
+            'divorce_no' => 'required|numeric',
+            
+        ]);
+         $check_divorce_no= $request->divorce_no;
+        
+        $dowanlaod = Marriage::where('divorce_no',$check_divorce_no)->where('status', 'divorce')->first();
+
+    //    dd($dowanlaod);
+
+          if($dowanlaod){
+
+            $data = [
+            'title' => 'Welcome to LaravelTuts.com',
+            'date' => date('m/d/Y'),
+             'dowanload' => $dowanlaod,
+        ]; 
+         $pdf = PDF::loadView('admin.marriage.marriage_pdf', $data);
+        
+        return $pdf->download('marriage.pdf');
+          } else {
+             Toastr::error('Your Registration number is not correct ', 'Danger!');
+            // return view('admin.marriage.remarriage.permission');
+            return redirect()->back();
+        }
+     }
+    
+    
+    
+    
+    
     public function add()
     {
         return view('admin.divorce.divorce_annulment');
