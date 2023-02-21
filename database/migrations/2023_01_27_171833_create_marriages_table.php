@@ -25,6 +25,9 @@ class CreateMarriagesTable extends Migration
             $table->string('husband_nid_image')->nullable(true);
             $table->string('husband_name')->nullable(true);
             $table->string('husband_religion')->nullable(true); 
+            $table->string('husband_dowery')->nullable(true); 
+            $table->string('husband_dowery_paid')->nullable(true); 
+            $table->string('husband_dowery_remain')->nullable(true); 
             $table->string('husband_image')->nullable(true);
             $table->date('husband_birthday')->nullable(true);
             $table->string('husband_flat_no')->nullable(true);

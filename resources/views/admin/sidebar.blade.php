@@ -84,6 +84,11 @@
                 </li>
 
 
+                <li>
+                    <a href="{{ route('admin.marriage.rules') }}" class="{{ request()->path() == 'admin/marriage/rules' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i> Marriage Rules</a>
+                </li>
+
+
                
             </ul>
         </li>

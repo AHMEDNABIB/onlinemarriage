@@ -27,8 +27,11 @@ class MarriageRequest extends FormRequest
              
            
             'husband_name' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
-            'husband_nid' => "required|numeric|regex:/^[0-9A-Za-z.\s,'-]*$/",
-            'husband_nid_image' => 'required||mimes:jpeg,png,jpg||max:500',
+            'husband_nid' => "required|numeric",
+            'husband_dowery' => "required|numeric",
+            'husband_dowery_paid' => "required|numeric",
+            'husband_dowery_remain' => "required|numeric",
+            'husband_nid_image' => 'required||mimes:jpeg,png,jpg||max:1500',
             
             'husband_religion' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
             'husband_image' => 'required||mimes:jpeg,png,jpg||max:500',
@@ -40,7 +43,7 @@ class MarriageRequest extends FormRequest
             'husband_pincode' => 'required|numeric',
 
             'wife_nid' => "required|numeric|regex:/^[0-9A-Za-z.\s,'-]*$/",
-            'wife_nid_image' => 'required||mimes:jpeg,png,jpg||max:500',
+            'wife_nid_image' => 'required||mimes:jpeg,png,jpg||max:1500',
             'wife_name' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
             'wife_religion' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
             'wife_birthday' => 'required',

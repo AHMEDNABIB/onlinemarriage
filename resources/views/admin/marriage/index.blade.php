@@ -54,6 +54,10 @@
                                             <a href="{{ route('admin.marriage.edit', $value->id) }}" class="bg-primary text-white" title="Edit This shop">
                                                 <i class='fadeIn animated bx bx-edit'></i>
                                             </a>
+
+                                            <a href="{{ route('admin.marriage.pdf') }}" class="bg-primary text-white" title="Edit This Marrige">
+                                                <i class='fadeIn animated bx bx-edit'></i>
+                                            </a>
                                             {{-- TRASH --}}
                                             {{-- <a onclick="return confirm('Are you sure you delete this shop?');" href="{{ route('admin.divorce.destroy', $value->id) }}" class="p-1 bg-danger text-white mx-1">
                                                 <i class="lni lni-trash"></i>

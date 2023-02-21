@@ -8,12 +8,29 @@ use App\Models\Marriage;
 use App\Http\Requests\MarriageRequest;
 use App\Http\Requests\MarriageUpdateRequest;
 use Toastr;
+use PDF;
+  
 use App\Notifications\EmailNotification;
 use Illuminate\Support\Facades\Notification;
 
 class MarriageController extends Controller
 {
+    public function rules(){
+        return view('admin.marriage.rules');
+    }
+//    export pdf
 
+     public function export_image_pdf(){
+        
+          
+          $pdf = PDF::loadView('admin.marriage.marriage_pdf');
+        
+
+      
+        
+    
+        return $pdf->download('marriage.pdf');
+     }
 
     // remarriage
     public function permission(){
@@ -151,7 +168,7 @@ class MarriageController extends Controller
         return view('admin.marriage.index', compact('all_marriage'));
     }
 
-     public function store(Request $request)
+     public function store(MarriageRequest $request)
     {
         // Calculate Age
         $dateOfBirthHusband = $request->husband_birthday;
@@ -225,9 +242,12 @@ class MarriageController extends Controller
             'status'=>'married',
 
             'husband_nid'=>$request->husband_nid,
-             'husband_nid_image'=>$husband_nid_image_name_path,
+            'husband_nid_image'=>$husband_nid_image_name_path,
             'husband_name'=>$request->husband_name,
             'husband_religion'=>$request->husband_religion,
+            'husband_dowery'=>$request->husband_dowery,
+            'husband_dowery_paid'=>$request->husband_dowery_paid,
+            'husband_dowery_remain'=>$request->husband_dowery_remain,
             'husband_birthday'=>$request->husband_birthday,
             'husband_image'=>$husband_image_name_path,
             'husband_flat_no'=>$request->husband_flat_no,

@@ -36,7 +36,8 @@
                 @endif
             </div>
         </div>
-          <div class="row mb-3">
+
+        <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Religion</label>
             <div class="col-sm-7">
                 <input type="text" style="max-width:200px; height: 35px; " name="husband_religion" class="form-control"  placeholder="Religion" value="{{old('husband_religion')}}" >
@@ -45,6 +46,7 @@
                 @endif
             </div>
         </div>
+
           <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Date of Birth</label>
             <div class="col-sm-7">
@@ -54,7 +56,41 @@
                 @endif
             </div>
         </div>
-         <div class="row ">
+
+          <div class="row mb-3">
+            <label for="" class="col-sm-5 col-form-label">Dowery</label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:200px; height: 35px; " name="husband_dowery" class="form-control"  placeholder="Dowery Money" value="{{old('husband_dowery')}}" >
+                  @if ($errors->has('husband_dowery'))
+                    <span class="text-danger">{{ $errors->first('husband_dowery') }}</span>
+                @endif
+            </div>
+        </div>
+          <div class="row mb-3">
+            <label for="exampleInput4" class="col-sm-5 form-label">Dowery Paid</label>
+            <div class="col-sm-7">
+              <input type="text" style="max-width:200px; height: 35px; " class="form-control" id="exampleInput4" name="husband_dowery_paid" placeholder="Dowery Paid " value="{{old('husband_dowery_paid')}}" />
+                @if ($errors->has('husband_dowery_paid'))
+                    <span class="text-danger">{{ $errors->first('husband_dowery_paid') }}</span>
+                @endif
+            </div>
+        </div>
+
+        <div class=" row mb-3">
+              <label for="exampleInput4" class=" col-sm-5 form-label">Dowery Remain</label>
+              <div class="col-sm-7">
+                <input type="text" style="max-width:200px; height: 35px; " class="form-control col-sm-8" id="exampleInput4" name="husband_dowery_remain" placeholder="Husband Dowery Remain" value="{{old('husband_dowery_remain')}}" />
+                  @if ($errors->has('husband_dowery_remain'))
+                    <span class="text-danger">{{ $errors->first('husband_dowery_remain') }}</span>
+                @endif
+              </div>
+              
+            </div>
+          
+
+       
+
+         <div class="row mb-3 ">
             <label for="image" class="col-sm-5 col-form-label">Husband Image</label>
             <div class="col-sm-7">
                 <input type="file" class="form-control" id="image" style="max-width:400px; height: 35px; " class="form-control" name="husband_image" >
@@ -65,8 +101,7 @@
             </div>
              
           </div>  
-        </div>
-        <div class="row mt-4">
+          <div class="row">
           <div class="col-md-6">
             <div class=" row mb-3">
               <label for="exampleInput4" class=" col-sm-3 form-label"> Nid No</label>
@@ -93,6 +128,9 @@
                 @endif
           </div>
         </div>
+        
+        </div>
+        
       </div>
          
         <h6>Permanent Address</h6>

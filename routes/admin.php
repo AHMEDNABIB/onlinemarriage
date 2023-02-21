@@ -114,6 +114,12 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/marriage/edit/{id}', [MarriageController::class, 'edit'])->name('marriage.edit');
         Route::post('/marriage/{id}', [MarriageController::class, 'update'])->name('marriage.update');
         Route::delete('/marriage/delete/{id}', [MarriageController::class, 'destroy'])->name('marriage.destroy');
+
+
+         Route::get('marriage/pdf', [MarriageController::class, 'export_image_pdf'])->name('marriage.pdf');
+         Route::get('marriage/rules', [MarriageController::class, 'rules'])->name('marriage.rules');
+
+
     });
 
 });
