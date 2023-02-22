@@ -165,7 +165,7 @@ class MarriageController extends Controller
         if ($marriage_husband == null && $marriage_wife== null) {
          
             Toastr::success('You can Register for New Marriage', 'Success!');
-            return view('admin.marriage.add');
+            return view('admin.marriage.new_marriage_from',compact('husband_nid','wife_nid'));
            
          } 
          elseif (($marriage_husband == null && $marriage_wife != null)) {
@@ -194,6 +194,7 @@ class MarriageController extends Controller
 
      public function store(MarriageRequest $request)
     {
+        
         // Calculate Age
         $dateOfBirthHusband = $request->husband_birthday;
         $today = date("Y-m-d");
