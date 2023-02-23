@@ -19,7 +19,11 @@
     }
 
     .title{
-       
+         display: flex;
+        justify-content: center; /* Centering Horizantly */
+        align-items: center;
+        width: 100%;
+        margin-bottom: 2px;
     }
 
     .flex{
@@ -28,8 +32,7 @@
 
     .image{
         display: flex;
-        flex-direction: column;
-        justify-content: space-between ;
+        justify-content: space-around ;
         align-items: baseline;
         margin-left: 10px;
 
@@ -47,15 +50,15 @@
     
 
   </style>
+  
 
 </head>
 <body >
 <div style="width: 80%;  padding-left: 15px; margin-top: 25px; margin-right: auto; margin-left: auto;">
-    
-    <table  >
+    <table class="title">
         <tr>
             
-            <th >
+            <th style="border: none">
                 <h2>APPLICTION FORM MARRIAGE CERTIFICATE</h2> <br>
                 
             </th>
@@ -68,8 +71,8 @@
             <td class="align-middle"  height="200px">
                 <div class="image">
                   
-                  <img height="150px" width="140px" src="{{ public_path($dowanload->husband_image) }}" alt="">
-                  <img height="150px" width="140px" src="{{ public_path($dowanload->wife_image) }}" alt="">
+                  <img height="200px" width="150px" src="{{ asset($show->husband_image) }}" alt="">
+                  <img height="200px" width="150px" src="{{ asset($show->wife_image) }}" alt="">
                 </div>
             </td>
         </tr>
@@ -81,7 +84,7 @@
             <td></td>
         </tr> --}}
         
-        <tr class="bg-dark text-white">
+        <tr class="bg-dark text-white" style=" padding: 100px; width: 2000px;">
             <th></th>
             <th class="text-center">Bride's Details</th>
             <th class="text-center">Groom's Details</th>
@@ -89,8 +92,8 @@
         <tr>
             <th>Name*</th>
             
-            <th>{{$dowanload->husband_name}}</th>
-            <th>{{$dowanload->wife_name}}</th>
+            <th>{{$show->husband_name}}</th>
+            <th>{{$show->wife_name}}</th>
         </tr>
         {{-- <tr>
             <th>Father's Name*</th>
@@ -104,8 +107,8 @@
         </tr> --}}
         <tr>
             <th>Date of Birth*</th>
-            <th>{{$dowanload->husband_birthday}}</th>
-            <th>{{$dowanload->wife_birthday}}</th>
+            <th>{{$show->husband_birthday}}</th>
+            <th>{{$show->wife_birthday}}</th>
         </tr>
         <tr>
             <th>Gender*</th>
@@ -119,19 +122,19 @@
         </tr> --}}
         <tr>
             <th>Mobile Number*</th>
-            <th>{{$dowanload->husband_contact_number}}</th>
-            <th>{{$dowanload->wife_contact_number}}</th>
+            <th>{{$show->husband_contact_number}}</th>
+            <th>{{$show->wife_contact_number}}</th>
         </tr>
         <tr>
             <th>Nid No*</th>
-            <th>{{$dowanload->husband_nid}}</th>
-            <th>{{$dowanload->wife_nid}}</th>
+            <th>{{$show->husband_nid}}</th>
+            <th>{{$show->wife_nid}}</th>
             
         </tr>
         <tr>
             <th>Email Id*</th>
-            <th>{{$dowanload->husband_email}}</th>
-            <th>{{$dowanload->wife_email}}</th>
+            <th>{{$show->husband_email}}</th>
+            <th>{{$show->wife_email}}</th>
         </tr>
         {{-- <tr>
             <th>Marital Status*</th>
@@ -159,8 +162,8 @@
         </tr> --}}
         <tr>
             <th>Religion*</th>
-             <th>{{$dowanload->husband_religion}}</th>
-             <th>{{$dowanload->wife_religion}}</th>
+             <th>{{$show->husband_religion}}</th>
+             <th>{{$show->wife_religion}}</th>
             
         </tr>
         {{-- <tr>
@@ -175,25 +178,25 @@
         </tr>
         <tr>
             <th>State*</th>
-            <th>{{$dowanload->husband_state}}</th>
-            <th>{{$dowanload->wife_state}}</th>
+            <th>{{$show->husband_state}}</th>
+            <th>{{$show->wife_state}}</th>
             
         </tr>
         <tr>
             <th>Upazila*</th>
-            <th>{{$dowanload->husband_city_name}}</th>
-            <th>{{$dowanload->wife_city_name}}</th>
+            <th>{{$show->husband_city_name}}</th>
+            <th>{{$show->wife_city_name}}</th>
         
         </tr>
         <tr>
             <th>Pincode*</th>
-            <th>{{$dowanload->husband_pincode}}</th>
-            <th>{{$dowanload->wife_pincode}}</th>
+            <th>{{$show->husband_pincode}}</th>
+            <th>{{$show->wife_pincode}}</th>
         </tr>
         <tr>
             <th>Address*</th>
-            <th>{{$dowanload->husband_flat_no}}, {{$dowanload->husband_road_name}} </th>
-            <th>{{$dowanload->wife_flat_no}}, {{$dowanload->wife_road_name}} </th>
+            <th>{{$show->husband_flat_no}}, {{$show->husband_road_name}} </th>
+            <th>{{$show->wife_flat_no}}, {{$show->wife_road_name}} </th>
         </tr>
        
         <tr>
@@ -203,7 +206,7 @@
                     certified that this marriage has not been registered anywhere in Bangladesh/Abroad and we are not related to each other within the degree of prohibited
                     relationship and neither of us is lunatic. We shall be liable for action as per the law, if we have violated any provision of any law of the land.
                 </p>
-                 <div style="display: flex; justify-content: space-between;">
+                 <div style="display: flex; justify-content: space-around;">
                 <strong>Signature with Date: </strong>
                 <strong>Signature with Date: </strong>
 
@@ -213,7 +216,7 @@
             </td>
         </tr>
     </table>
-    <table class=" mt-2" style="width: 100%;">
+    <table class="" style="width: 100%; margin-top:10px margin-bottom:30px">
         <tr>
             <th>Witness Details</th>
             <th>Witness 1 Details</th>
@@ -223,10 +226,10 @@
         </tr>
         <tr>
             <th>Name*</th>
-            <td>{{$dowanload->witness1_name}}</td>
-            <td>{{$dowanload->witness2_name}}</td>
-            <td>{{$dowanload->witness3_name}}</td>
-            <td>{{$dowanload->witness4_name}}</td>
+            <td>{{$show->witness1_name}}</td>
+            <td>{{$show->witness2_name}}</td>
+            <td>{{$show->witness3_name}}</td>
+            <td>{{$show->witness4_name}}</td>
             
         </tr>
         <!-- <tr>
@@ -239,12 +242,14 @@
         <tr>
             <th>Relation With*</th>
             <th>
-                <div class="d-flex justify-content-around flex-md-row-reverse flex-column ">
+                <div class=" " style="display: flex; justify-content: space-around;">
 
-                    @if ($dowanload->witness1_name)
+                    @if ($show->witness1_name)
                     <span><input type="checkbox" value="Grom"
-                       {{  ($dowanload->witness1_name ? ' checked' : '') }}
+                       {{  ($show->witness1_name ? ' checked' : '') }}
                         >Groom</span>
+
+                         <span><input type="checkbox" value="Groom">Bride</span>
                    
                     @endif
                    
@@ -252,24 +257,28 @@
                 </div>
             </th>
             <th>
-                <div class="d-flex justify-content-around flex-md-row-reverse flex-column ">
-                    @if ($dowanload->witness2_name)
-                    <span><input type="checkbox" value="Groom"   {{  ($dowanload->witness2_name ? ' checked' : '') }}>Groom</span>
+                <div class=" " style="display: flex; justify-content: space-around;">
+                    @if ($show->witness2_name)
+                    <span><input type="checkbox" value="Groom"   {{  ($show->witness2_name ? ' checked' : '') }}>Groom</span>
+                     <span><input type="checkbox" value="Groom">Bride</span>
                     @endif
                     
                 </div>
             </th>
             <th>
-                <div class="d-flex justify-content-around flex-md-row-reverse flex-column ">
-                    @if ($dowanload->witness3_name)
-                    <span><input type="checkbox" value="Groom"   {{  ($dowanload->witness3_name ? ' checked' : '') }}>Bride</span>
+                <div class="" style="display: flex; justify-content: space-around;">
+                    @if ($show->witness3_name)
+                    <span><input type="checkbox" value="Groom"   {{  ($show->witness3_name ? ' checked' : '') }}>Bride</span>
+                     <span><input type="checkbox" value="Groom">Groom</span>
                     @endif
                 </div>
             </th>
             <th>
-                <div class="d-flex justify-content-around flex-md-row-reverse flex-column ">
-                    @if ($dowanload->witness4_name)
-                    <span><input type="checkbox" value="Groom"   {{  ($dowanload->witness4_name ? ' checked' : '') }}>Bride</span>
+                <div class="" style="display: flex; justify-content: space-around;">
+                    @if ($show->witness4_name)
+                    <span><input type="checkbox" value="Groom"   {{  ($show->witness4_name ? ' checked' : '') }}>Bride</span>
+
+                     <span><input type="checkbox" value="Groom">Groom</span>
                     @endif
                 </div>
             </th>
@@ -292,10 +301,10 @@
         
         <tr>
             <th>Address*</th>
-            <td>{{$dowanload->witness1_address}}</td>
-            <td>{{$dowanload->witness2_address}}</td>
-            <td>{{$dowanload->witness3_address}}</td>
-            <td>{{$dowanload->witness4_address}}</td>
+            <td>{{$show->witness1_address}}</td>
+            <td>{{$show->witness2_address}}</td>
+            <td>{{$show->witness3_address}}</td>
+            <td>{{$show->witness4_address}}</td>
             
         </tr>
         <!-- <tr>

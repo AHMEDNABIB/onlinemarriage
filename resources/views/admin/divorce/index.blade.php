@@ -50,8 +50,12 @@
 
                                         <div class="d-flex order-actions justify-content-center">
                                             {{-- EDIT --}}
-                                            <a href="{{ route('admin.divorce.edit', $value->id) }}" class="bg-primary text-white" title="Edit This shop">
+                                            <a href="{{ route('admin.divorce.edit', $value->id) }}" class="bg-primary text-white" title="Edit This Divorce">
                                                 <i class='fadeIn animated bx bx-edit'></i>
+                                            </a>
+
+                                            <a href="{{ route('admin.divorce.show',$value->id) }}" class="bg-primary text-white" title=" Show This Divorce">
+                                               <i class="lni lni-eye"></i>
                                             </a>
                                             {{-- TRASH --}}
                                             {{-- <a onclick="return confirm('Are you sure you delete this shop?');" href="{{ route('admin.divorce.destroy', $value->id) }}" class="p-1 bg-danger text-white mx-1">

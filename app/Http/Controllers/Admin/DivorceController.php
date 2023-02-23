@@ -328,7 +328,9 @@ class DivorceController extends Controller
      */
     public function show($id)
     {
-        //
+         $show = Marriage::where('id',$id)->where('status', 'divorce')->first();
+
+        return view('admin.divorce.show', compact('show'));
     }
 
     /**

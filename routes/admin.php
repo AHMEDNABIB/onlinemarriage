@@ -115,6 +115,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('marriage/index', [MarriageController::class, 'index'])->name('marriage.index');
         Route::post('marriage/save', [MarriageController::class, 'store'])->name('marriage.store');
         Route::get('/marriage/edit/{id}', [MarriageController::class, 'edit'])->name('marriage.edit');
+        Route::get('/marriage/show/{id}', [MarriageController::class, 'show'])->name('marriage.show');
         Route::post('/marriage/{id}', [MarriageController::class, 'update'])->name('marriage.update');
         Route::delete('/marriage/delete/{id}', [MarriageController::class, 'destroy'])->name('marriage.destroy');
 

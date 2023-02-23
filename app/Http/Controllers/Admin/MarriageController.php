@@ -331,6 +331,20 @@ class MarriageController extends Controller
         
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $show = Marriage::where('id',$id)->where('status', 'married')->first();
+
+        return view('admin.marriage.show', compact('show'));
+    }
+
+
      public function edit($id)
     {
           $marriage = Marriage::find($id);
