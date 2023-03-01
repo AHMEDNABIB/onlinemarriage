@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Marrriage From</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -35,6 +35,23 @@
 
     }
 
+    .flex-container {
+         display: flex;
+         flex-direction: row;
+        width: 100%;
+    }
+
+    .signature{
+        display: flex;
+        justify-content: space-around;
+    }
+    .signature_image{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+    }
+
 
     @media print {
   body{
@@ -52,19 +69,17 @@
 <body >
 <div style="width: 80%;  padding-left: 15px; margin-top: 25px; margin-right: auto; margin-left: auto;">
     
-    <table  >
-        <tr>
-            
-            <th >
-                <h2>APPLICTION FORM MARRIAGE CERTIFICATE</h2> <br>
+    
+              <h2 style="margin-left: 40px; margint-bottom:250px"> APPLICTION FORM MARRIAGE CERTIFICATE</h2> 
                 
-            </th>
-        </tr>
-    </table>
+        
+            
+            
+       
     <table class="">
         <tr  >
             <th class="align-middle" width="20% ">Complete Address of Marriage*</th>
-            <td class="align-middle" width="40%"></td>
+            <td class="align-middle" width="40%">{{$dowanload->marriage_address}}</td>
             <td class="align-middle"  height="200px">
                 <div class="image">
                   
@@ -75,11 +90,12 @@
         </tr>
 
         
-        {{-- <tr>
+        <tr>
             <th class="align-middle " height="50px">Date of Marriage*</th>
+            <td>{{$dowanload->marriage_date}}</td>
             <td></td>
-            <td></td>
-        </tr> --}}
+            
+        </tr>
         
         <tr class="bg-dark text-white">
             <th></th>
@@ -203,12 +219,26 @@
                     certified that this marriage has not been registered anywhere in Bangladesh/Abroad and we are not related to each other within the degree of prohibited
                     relationship and neither of us is lunatic. We shall be liable for action as per the law, if we have violated any provision of any law of the land.
                 </p>
-                 <div style="display: flex; justify-content: space-between;">
-                <strong>Signature with Date: </strong>
-                <strong>Signature with Date: </strong>
+
+                <div class="flex-container">
+
+                    <div style="margin-left: 120px" >
+                    <img height="150px" width="220px"  src="{{ public_path($dowanload->husband_signature) }}" alt="">
+                    <img style="margin-left: 20px" height="150px"  width="220px" src="{{ public_path($dowanload->wife_signature) }}" alt="">
+                      
+                    </div>
+
+                    <div class="" style="margin-left: 120px" >
+                    
+                       <strong>Signature with Date: {{$dowanload->marriage_date}} </strong>
+                        <strong style="margin-left: 20px">Signature with Date: {{$dowanload->marriage_date}} </strong>
+                    </div>
+                
+               
 
                   
                  </div>
+                
                 <span></span>
             </td>
         </tr>

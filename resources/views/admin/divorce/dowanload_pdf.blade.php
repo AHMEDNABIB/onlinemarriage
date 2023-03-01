@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Divorce From</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -19,11 +19,7 @@
     }
 
     .title{
-         display: flex;
-        justify-content: center; /* Centering Horizantly */
-        align-items: center;
-        width: 100%;
-        margin-bottom: 2px;
+       
     }
 
     .flex{
@@ -32,9 +28,27 @@
 
     .image{
         display: flex;
-        justify-content: space-around ;
+        flex-direction: column;
+        justify-content: space-between ;
         align-items: baseline;
         margin-left: 10px;
+
+    }
+
+    .flex-container {
+         display: flex;
+         flex-direction: row;
+        width: 100%;
+    }
+
+    .signature{
+        display: flex;
+        justify-content: space-around;
+    }
+    .signature_image{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
 
     }
 
@@ -50,41 +64,40 @@
     
 
   </style>
-  
 
 </head>
 <body >
 <div style="width: 80%;  padding-left: 15px; margin-top: 25px; margin-right: auto; margin-left: auto;">
-    <table class="title">
-        <tr>
-            
-            <th style="border: none">
-                <h2>APPLICTION FORM MARRIAGE CERTIFICATE</h2> <br>
+    
+    
+              <h2 style="margin-left: 40px; margint-bottom:250px"> APPLICTION FORM Divorce CERTIFICATE</h2> 
                 
-            </th>
-        </tr>
-    </table>
+        
+            
+            
+       
     <table class="">
         <tr  >
             <th class="align-middle" width="20% ">Complete Address of Marriage*</th>
-            <td class="align-middle" width="40%"></td>
+            <td class="align-middle" width="40%">{{$dowanload->marriage_address}}</td>
             <td class="align-middle"  height="200px">
                 <div class="image">
                   
-                    <img height="200px" width="100px" src="{{ public_path($dowanload->husband_image) }}" alt="">
-                  <img height="200px" width="100px" src="{{ public_path($dowanload->wife_image) }}" alt="">
+                  <img height="150px" width="140px" src="{{ public_path($dowanload->husband_image) }}" alt="">
+                  <img height="150px" width="140px" src="{{ public_path($dowanload->wife_image) }}" alt="">
                 </div>
             </td>
         </tr>
 
         
-        {{-- <tr>
+        <tr>
             <th class="align-middle " height="50px">Date of Marriage*</th>
+            <td>{{$dowanload->marriage_date}}</td>
             <td></td>
-            <td></td>
-        </tr> --}}
+            
+        </tr>
         
-        <tr class="bg-dark text-white" style=" padding: 100px; width: 2000px;">
+        <tr class="bg-dark text-white">
             <th></th>
             <th class="text-center">Bride's Details</th>
             <th class="text-center">Groom's Details</th>
@@ -206,17 +219,31 @@
                     certified that this marriage has not been registered anywhere in Bangladesh/Abroad and we are not related to each other within the degree of prohibited
                     relationship and neither of us is lunatic. We shall be liable for action as per the law, if we have violated any provision of any law of the land.
                 </p>
-                 <div style="display: flex; justify-content: space-around;">
-                <strong>Signature with Date: </strong>
-                <strong>Signature with Date: </strong>
+
+                <div class="flex-container">
+
+                    <div style="margin-left: 120px" >
+                    <img height="150px" width="220px"  src="{{ public_path($dowanload->husband_signature) }}" alt="">
+                    <img style="margin-left: 20px" height="150px"  width="220px" src="{{ public_path($dowanload->wife_signature) }}" alt="">
+                      
+                    </div>
+
+                    <div class="" style="margin-left: 120px" >
+                    
+                       <strong>Signature with Date: {{$dowanload->marriage_date}} </strong>
+                        <strong style="margin-left: 20px">Signature with Date: {{$dowanload->marriage_date}} </strong>
+                    </div>
+                
+               
 
                   
                  </div>
+                
                 <span></span>
             </td>
         </tr>
     </table>
-    <table class="" style="width: 100%; margin-top:10px margin-bottom:30px">
+    <table class=" mt-2" style="width: 100%;">
         <tr>
             <th>Witness Details</th>
             <th>Witness 1 Details</th>
@@ -242,14 +269,12 @@
         <tr>
             <th>Relation With*</th>
             <th>
-                <div class=" " style="display: flex; justify-content: space-around;">
+                <div class="d-flex justify-content-around flex-md-row-reverse flex-column ">
 
                     @if ($dowanload->witness1_name)
                     <span><input type="checkbox" value="Grom"
                        {{  ($dowanload->witness1_name ? ' checked' : '') }}
                         >Groom</span>
-
-                         <span><input type="checkbox" value="Groom">Bride</span>
                    
                     @endif
                    
@@ -257,28 +282,24 @@
                 </div>
             </th>
             <th>
-                <div class=" " style="display: flex; justify-content: space-around;">
+                <div class="d-flex justify-content-around flex-md-row-reverse flex-column ">
                     @if ($dowanload->witness2_name)
                     <span><input type="checkbox" value="Groom"   {{  ($dowanload->witness2_name ? ' checked' : '') }}>Groom</span>
-                     <span><input type="checkbox" value="Groom">Bride</span>
                     @endif
                     
                 </div>
             </th>
             <th>
-                <div class="" style="display: flex; justify-content: space-around;">
+                <div class="d-flex justify-content-around flex-md-row-reverse flex-column ">
                     @if ($dowanload->witness3_name)
                     <span><input type="checkbox" value="Groom"   {{  ($dowanload->witness3_name ? ' checked' : '') }}>Bride</span>
-                     <span><input type="checkbox" value="Groom">Groom</span>
                     @endif
                 </div>
             </th>
             <th>
-                <div class="" style="display: flex; justify-content: space-around;">
+                <div class="d-flex justify-content-around flex-md-row-reverse flex-column ">
                     @if ($dowanload->witness4_name)
                     <span><input type="checkbox" value="Groom"   {{  ($dowanload->witness4_name ? ' checked' : '') }}>Bride</span>
-
-                     <span><input type="checkbox" value="Groom">Groom</span>
                     @endif
                 </div>
             </th>

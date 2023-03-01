@@ -100,16 +100,31 @@
                  <span class="text-primary" >Image dimension must be (600 X 600) pixels and maximum size 150kb. </span>
             </div>
              
+          </div> 
+
+            <div class="row  mt-3">
+            <label for="image" class="col-sm-5 col-form-label">Husband Signature</label>
+            <div class="col-sm-7">
+                <input type="file" class="form-control" id="image" style="max-width:400px; height: 35px; " class="form-control" name="husband_signature" >
+                 @if ($errors->has('husband_signature'))
+                    <span class="text-danger">{{ $errors->first('husband_signature') }}</span>
+                @endif
+                 
+                 <span class="text-primary" >Image dimension must be (600 X 600) pixels and maximum size 150kb. </span>
+                 
+            </div>
+            
           </div>  
-          <div class="row">
+
+          
+          
+        <div class="row">
           <div class="col-md-6">
             <div class=" row mb-3">
               <label for="exampleInput4" class=" col-sm-3 form-label"> Nid No</label>
               <div class="col-sm-7">
-                <input type="number" class="form-control col-sm-9" id="exampleInput4" name="husband_nid" placeholder=" Nid No" value="{{old('husband_nid')}}"  />
-                  @if ($errors->has('husband_nid'))
-                    <span class="text-danger">{{ $errors->first('husband_nid') }}</span>
-                @endif
+                <input type="number" class="form-control col-sm-9" id="exampleInput4" name="husband_nid" placeholder=" Nid No"   />
+                 
               </div>
               
             </div>
@@ -273,18 +288,31 @@
                  
             </div>
             
+          </div> 
+          
+            <div class="row  mt-3">
+            <label for="image" class="col-sm-5 col-form-label">Wife Signature</label>
+            <div class="col-sm-7">
+                <input type="file" class="form-control" id="image" style="max-width:400px; height: 35px; " class="form-control" name="wife_signature" >
+                 @if ($errors->has('wife_signature'))
+                    <span class="text-danger">{{ $errors->first('wife_signature') }}</span>
+                @endif
+                 
+                 <span class="text-primary" >Image dimension must be (600 X 600) pixels and maximum size 150kb. </span>
+                 
+            </div>
+            
           </div>  
+
         </div>
         
-        <div class="row mt-4">
+        <div class="row">
           <div class="col-md-6">
             <div class=" row mb-3">
               <label for="exampleInput4" class=" col-sm-3 form-label"> Nid No</label>
               <div class="col-sm-7">
-                <input id="Nid No" type="number" class="form-control col-sm-9" id="exampleInput4" name="wife_nid" placeholder=" Nid No" value="{{old('wife_nid')}}" />
-                  @if ($errors->has('wife_nid'))
-                    <span class="text-danger">{{ $errors->first('wife_nid') }}</span>
-                @endif
+                <input id="Nid No" type="number" class="form-control col-sm-9" id="exampleInput4" name="wife_nid" placeholder=" Nid No"  />
+                  
               </div>
               
             </div>
@@ -303,6 +331,7 @@
                 @endif
           </div>
         </div>
+        
 
         <h6>Permanent Address</h6>
         <hr>
@@ -411,10 +440,22 @@
             </div>
         </div>
 
+        <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Contact Number of the Husband Witness</label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="witness1_phone"  value="{{old('witness1_phone')}}" >
+
+                  @if ($errors->has('witness1_phone'))
+                    <span class="text-danger">{{ $errors->first('witness1_phone') }}</span>
+                @endif
+               
+            </div>
+        </div>
+
          <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Address of Husband Witness</label>
             <div class="col-sm-7 ">
-              <textarea rows="2" cols="35" id="multiLineInput" name="witness1_address" class="" placeholder="Address of Witness">
+              <textarea rows="2" cols="47" id="multiLineInput" name="witness1_address" class="" placeholder="Address of Witness">
                  {{old('witness1_address')}}
                 </textarea>  
               
@@ -439,11 +480,24 @@
                
             </div>
         </div>
+
+        <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Contact Number of the Husband Witness</label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="witness2_phone"  value="{{old('witness2_phone')}}" >
+
+                  @if ($errors->has('witness2_phone'))
+                    <span class="text-danger">{{ $errors->first('witness2_phone') }}</span>
+                @endif
+               
+            </div>
+        </div>
+
         
          <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Address of Husband Witness</label>
             <div class="col-sm-7 ">
-              <textarea rows="2" cols="35" id="multiLineInput" name="witness2_address" class="" placeholder="Address of Witness">
+              <textarea rows="2" cols="47" id="multiLineInput" name="witness2_address" class="" placeholder="Address of Witness">
                  {{old('witness2_address')}}
               </textarea>
 
@@ -470,11 +524,24 @@
                
             </div>
         </div>
+
+        <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Contact Number of the Wife Witness</label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="witness3_phone"  value="{{old('witness3_phone')}}" >
+
+                  @if ($errors->has('witness3_phone'))
+                    <span class="text-danger">{{ $errors->first('witness3_phone') }}</span>
+                @endif
+               
+            </div>
+        </div>
+
         
          <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Address of Wife Witness</label>
             <div class="col-sm-7 ">
-              <textarea rows="2" cols="35" id="multiLineInput" name="witness3_address" class="" placeholder="Address of Witness">
+              <textarea rows="2" cols="47" id="multiLineInput" name="witness3_address" class="" placeholder="Address of Witness">
                  {{old('witness3_address')}}
               </textarea>
 
@@ -491,36 +558,48 @@
         <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Wife Witness</label>
             <div class="col-sm-7">
-                <input type="text" style="max-width:350px; height: 35px; " name="witness4_name" class="form-control" placeholder="Please Enter Full Name of the Witness"  value="{{old('witness4_name')}}" >
+                <input type="text" style="max-width:350px; height: 35px; " name="witness4_name" class="form-control"  value="{{old('witness4_name')}}" >
                   @if ($errors->has('witness4_name'))
                     <span class="text-danger">{{ $errors->first('witness4_name') }}</span>
                 @endif
                
             </div>
         </div>
+
+        <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Contact Number of the Wife Witness</label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="witness4_phone"  value="{{old('witness4_phone')}}" >
+
+                  @if ($errors->has('witness4_phone'))
+                    <span class="text-danger">{{ $errors->first('witness4_phone') }}</span>
+                @endif
+               
+            </div>
+        </div>
+
         
          <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Address of Wife Witness</label>
             <div class="col-sm-7 ">
-              <textarea rows="2" cols="35" id="multiLineInput" name="witness4_address" class="" placeholder="Address of Witness">
+              <textarea rows="2" cols="47" id="multiLineInput" name="witness4_address" class="" placeholder="Address of Witness">
                  {{old('witness1_name')}}
                 </textarea> 
               
               @if ($errors->has('witness4_address'))
                     <span class="text-danger">{{ $errors->first('witness4_address') }}</span>
                 @endif
-            </div>
-               
-            
+            </div>    
         </div>
+
       </div>
 
       <div class="card-header">
         <h5 class=" text-danger">DELIVERY DETAILS</h5>
       </div>
 
-      <div class="card-body">
-        <h6>Delivery Address</h6>
+    <div class="card-body">
+     
        
 
       <div class="row mt-2">
@@ -577,9 +656,58 @@
           </div>
           
       </div>
+
+
      </div>
-       <button type="submit" class="btn btn-primary btn-block">Submit</button>
+
+     <div class="card-header">
+       <h5 class="text-danger">Marriage Address and Date</h5>
+     </div>
+
+      <div class="card-body">
+       
+       
+
+      <div class="row mt-2">
+          <div class="col">
+            <div class=" row mb-3">
+              <label for="exampleInput4" class=" col-sm-5 form-label">Marriage Date </label>
+              <div class="col-sm-7">
+                <input type="date" style="max-width:275px; height: 35px; " class="form-control" name="marriage_date" value="{{old('marriage_date')}}" >
+                  @if ($errors->has('marriage_date'))
+                    <span class="text-danger">{{ $errors->first('marriage_date') }}</span>
+                @endif
+            </div>
+              
+            </div>
+          </div>
+            
+          </div>
+          
       </div>
+      <div class="row mt-2">
+          <div class="col">
+            <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Address of Marriage</label>
+            <div class="col-sm-7 ">
+              <textarea rows="2" cols="47" id="multiLineInput" name="marriage_address" class="" placeholder="Address of Witness">
+                 {{old('marriage_address')}}
+                </textarea> 
+              
+              @if ($errors->has('witness4_address'))
+                    <span class="text-danger">{{ $errors->first('marriage_address') }}</span>
+                @endif
+            </div>    
+        </div>
+          </div>
+            
+          
+      </div>
+
+     
+       
+     <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </div>
 
        
 
