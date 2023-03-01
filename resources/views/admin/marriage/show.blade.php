@@ -67,8 +67,8 @@
     <table class="">
         <tr  >
             <th class="align-middle" width="20% ">Complete Address of Marriage*</th>
-            <td class="align-middle" width="40%"></td>
-            <td class="align-middle"  height="200px">
+            <td class="align-middle" width="40%">{{$show->marriage_address}}</td>
+            <td class="align-middle" rowspan="2"  height="200px">
                 <div class="image">
                   
                   <img height="200px" width="150px" src="{{ asset($show->husband_image) }}" alt="">
@@ -78,11 +78,11 @@
         </tr>
 
         
-        {{-- <tr>
+        <tr>
             <th class="align-middle " height="50px">Date of Marriage*</th>
-            <td></td>
-            <td></td>
-        </tr> --}}
+            <td>{{$show->marriage_date}}</td>
+            
+        </tr>
         
         <tr class="bg-dark text-white" style=" padding: 100px; width: 2000px;">
             <th></th>
@@ -207,8 +207,18 @@
                     relationship and neither of us is lunatic. We shall be liable for action as per the law, if we have violated any provision of any law of the land.
                 </p>
                  <div style="display: flex; justify-content: space-around;">
-                <strong>Signature with Date: </strong>
-                <strong>Signature with Date: </strong>
+
+                    <div style="display: flex; justify-content: space-around; flex-direction:column" >
+                    <img height="150px" width="220px"  src="{{ asset($show->husband_signature) }}" alt="">
+                      <strong>Signature with Date: {{$show->marriage_date}} </strong>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-around; flex-direction:column" >
+                    <img height="150px" width="220px"  src="{{ asset($show->wife_signature) }}" alt="">
+                      <strong>Signature with Date: {{$show->marriage_date}} </strong>
+                    </div>
+                
+               
 
                   
                  </div>
@@ -230,6 +240,15 @@
             <td>{{$show->witness2_name}}</td>
             <td>{{$show->witness3_name}}</td>
             <td>{{$show->witness4_name}}</td>
+            
+        </tr>
+
+        <tr>
+            <th>Number*</th>
+            <td>{{$show->witness1_phone}}</td>
+            <td>{{$show->witness2_phone}}</td>
+            <td>{{$show->witness3_phone}}</td>
+            <td>{{$show->witness4_phone}}</td>
             
         </tr>
         <!-- <tr>
@@ -299,7 +318,7 @@
             <td></td>
         </tr> -->
         
-        <tr>
+        <tr class="mb-5">
             <th>Address*</th>
             <td>{{$show->witness1_address}}</td>
             <td>{{$show->witness2_address}}</td>

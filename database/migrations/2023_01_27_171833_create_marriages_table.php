@@ -29,6 +29,7 @@ class CreateMarriagesTable extends Migration
             $table->string('husband_dowery_paid')->nullable(true); 
             $table->string('husband_dowery_remain')->nullable(true); 
             $table->string('husband_image')->nullable(true);
+            $table->string('husband_signature')->nullable(true);
             $table->date('husband_birthday')->nullable(true);
             $table->string('husband_flat_no')->nullable(true);
             $table->string('husband_road_name')->nullable(true);
@@ -42,24 +43,33 @@ class CreateMarriagesTable extends Migration
             $table->string('wife_religion')->nullable(true);  
             $table->date('wife_birthday')->nullable(true);
              $table->string('wife_image')->nullable(true);
+             $table->string('wife_signature')->nullable(true);
             $table->string('wife_flat_no')->nullable(true);
             $table->string('wife_road_name')->nullable(true);
             $table->string('wife_state')->nullable(true);
             $table->string('wife_city_name')->nullable(true);
             $table->string('wife_pincode')->nullable(true);
+
             $table->string('witness1_name')->nullable(true);
+            $table->string('witness1_phone')->nullable(true);
             $table->string('witness1_address')->nullable(true);
             $table->string('witness2_name')->nullable(true);
+            $table->string('witness2_phone')->nullable(true);
             $table->string('witness2_address')->nullable(true);
             $table->string('witness3_name')->nullable(true);
+            $table->string('witness3_phone')->nullable(true);
             $table->string('witness3_address')->nullable(true);
             $table->string('witness4_name')->nullable(true);
+            $table->string('witness4_phone')->nullable(true);
             $table->string('witness4_address')->nullable(true);
             
             $table->string('husband_contact_number')->nullable(true);
             $table->string('husband_email')->nullable(true);
             $table->string('wife_contact_number')->nullable(true);
             $table->string('wife_email')->nullable(true);
+
+            $table->string('marriage_address')->nullable(true);
+            $table->string('marriage_date')->nullable(true);
 
             $table->timestamps();
         });

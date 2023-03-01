@@ -254,6 +254,20 @@ class MarriageController extends Controller
         $wife_nid_image_name_path = 'images/marriage/'.$wife_nid_image_name;
 
 
+        $husband_signature = $request->file('husband_signature');
+        $image_path = public_path('images/marriage/');
+        $husband_signature_name = rand(100000, 999999)."marriage." .$husband_signature->getClientOriginalExtension();
+        $husband_signature->move($image_path, $husband_signature_name);
+        $husband_signature_name_path = 'images/marriage/'.$husband_signature_name;
+
+
+        $wife_signature = $request->file('wife_signature');
+        $image_path = public_path('images/marriage/');
+        $wife_signature_name = rand(100000, 999999)."marriage." .$wife_signature->getClientOriginalExtension();
+        $wife_signature->move($image_path, $wife_signature_name);
+        $wife_signature_name_path = 'images/marriage/'.$husband_signature_name;
+
+
          
         $input= $request->all();
 
@@ -275,6 +289,7 @@ class MarriageController extends Controller
             'husband_dowery_remain'=>$request->husband_dowery_remain,
             'husband_birthday'=>$request->husband_birthday,
             'husband_image'=>$husband_image_name_path,
+            'husband_signature'=>$husband_signature_name_path,
             'husband_flat_no'=>$request->husband_flat_no,
             'husband_road_name'=>$request->husband_road_name,
             'husband_state'=>$request->husband_state,
@@ -286,7 +301,8 @@ class MarriageController extends Controller
             'wife_name'=>$request->wife_name,
             'wife_religion'=>$request->wife_religion,
             'wife_birthday'=>$request->wife_birthday,
-             'wife_image'=>$wife_image_name_path,
+            'wife_image'=>$wife_image_name_path,
+            'wife_signature'=>$wife_signature_name_path,
             'wife_flat_no'=>$request->wife_flat_no,
             'wife_road_name'=>$request->wife_road_name,
             'wife_state'=>$request->wife_state,
@@ -294,12 +310,16 @@ class MarriageController extends Controller
             'wife_pincode'=>$request->wife_pincode,
 
             'witness1_name'=>$request->witness1_name,
+            'witness1_phone'=>$request->witness1_phone,
             'witness1_address'=>$request->witness1_address,
             'witness2_name'=>$request->witness2_name,
+            'witness2_phone'=>$request->witness2_phone,
             'witness2_address'=>$request->witness2_address,
             'witness3_name'=>$request->witness3_name,
+            'witness3_phone'=>$request->witness3_phone,
             'witness3_address'=>$request->witness3_address,
             'witness4_name'=>$request->witness4_name,
+            'witness4_phone'=>$request->witness4_phone,
             'witness4_address'=>$request->witness4_address,
             
             
@@ -307,6 +327,12 @@ class MarriageController extends Controller
            'husband_email'=>$request->husband_email,
            'wife_contact_number'=>$request->wife_contact_number,
            'wife_email'=>$request->wife_email,
+
+
+           'marriage_address'=>$request->marriage_address,
+           'marriage_date'=>$request->marriage_date,
+
+
             
         ];
 

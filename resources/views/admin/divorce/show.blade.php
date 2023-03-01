@@ -78,11 +78,11 @@
         </tr>
 
         
-        {{-- <tr>
+        <tr>
             <th class="align-middle " height="50px">Date of Marriage*</th>
             <td></td>
             <td></td>
-        </tr> --}}
+        </tr>
         
         <tr class="bg-dark text-white" style=" padding: 100px; width: 2000px;">
             <th></th>

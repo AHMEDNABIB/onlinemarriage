@@ -35,6 +35,7 @@ class MarriageRequest extends FormRequest
             
             'husband_religion' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
             'husband_image' => 'required||mimes:jpeg,png,jpg||max:500',
+            'husband_signature' => 'required||mimes:jpeg,png,jpg||max:500',
             'husband_birthday' => 'required',
             'husband_flat_no' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
             'husband_road_name' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
@@ -48,6 +49,7 @@ class MarriageRequest extends FormRequest
             'wife_religion' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
             'wife_birthday' => 'required',
             'wife_image' => 'required||mimes:jpeg,png,jpg||max:500',
+            'wife_signature' => 'required||mimes:jpeg,png,jpg||max:500',
             'wife_flat_no' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
             'wife_road_name' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
             'wife_state' => 'required',
@@ -55,18 +57,28 @@ class MarriageRequest extends FormRequest
             'wife_pincode'=> 'required||numeric',
             
             'witness1_name' => 'required',
+            'witness1_phone' => 'required',
             'witness1_address' => 'required',
             'witness2_name' => 'required',
+            'witness2_phone' => 'required',
             'witness2_address'=> 'required',
             'witness3_name' => 'required',
+            'witness3_phone' => 'required',
             'witness3_address' => 'required',
             'witness4_name' => 'required',
+            'witness4_phone' => 'required',
             'witness4_address' => 'required',
+
+
+            'marriage_address' => 'required',
+            'marriage_date' => 'required',
             
             'husband_contact_number' => 'required|numeric',
             'husband_email'=> 'required||email',
             'wife_contact_number' => 'required|||numeric',
             'wife_email' => 'required|email',
+
+
 
         ];
     }
