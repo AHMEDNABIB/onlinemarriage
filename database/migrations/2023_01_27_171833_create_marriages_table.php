@@ -24,6 +24,8 @@ class CreateMarriagesTable extends Migration
             $table->bigInteger('husband_nid')->nullable(true);
             $table->string('husband_nid_image')->nullable(true);
             $table->string('husband_name')->nullable(true);
+            $table->string('husband_father_name')->nullable(true);
+            $table->string('husband_mother_name')->nullable(true);
             $table->string('husband_religion')->nullable(true); 
             $table->string('husband_dowery')->nullable(true); 
             $table->string('husband_dowery_paid')->nullable(true); 
@@ -40,6 +42,8 @@ class CreateMarriagesTable extends Migration
             $table->bigInteger('wife_nid')->nullable(true);
             $table->string('wife_nid_image')->nullable(true);
             $table->string('wife_name')->nullable(true);
+            $table->string('wife_father_name')->nullable(true);
+            $table->string('wife_mother_name')->nullable(true);
             $table->string('wife_religion')->nullable(true);  
             $table->date('wife_birthday')->nullable(true);
              $table->string('wife_image')->nullable(true);

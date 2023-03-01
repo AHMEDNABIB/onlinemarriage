@@ -106,6 +106,8 @@ class DivorceController extends Controller
             'husband_nid'=>$request->husband_nid,
            //  'husband_nid_image'=>$husband_nid_image_name_path,
             'husband_name'=>$request->husband_name,
+            'husband_father_name'=>$request->husband_father_name,
+            'husband_mother_name'=>$request->husband_mother_name,
             'husband_religion'=>$request->husband_religion,
             'husband_birthday'=>$request->husband_birthday,
            // 'husband_image'=>$husband_image_name_path,
@@ -118,6 +120,8 @@ class DivorceController extends Controller
             'wife_nid'=>$request->wife_nid,
           //  'wife_nid_image'=>$wife_nid_image_name_path,
             'wife_name'=>$request->wife_name,
+            'wife_father_name'=>$request->wife_father_name,
+            'wife_mother_name'=>$request->wife_mother_name,
             'wife_religion'=>$request->wife_religion,
             'wife_birthday'=>$request->wife_birthday,
            //  'wife_image'=>$wife_image_name_path,
@@ -141,6 +145,9 @@ class DivorceController extends Controller
            'husband_email'=>$request->husband_email,
            'wife_contact_number'=>$request->wife_contact_number,
            'wife_email'=>$request->wife_email,
+
+           'marriage_address'=>$request->marriage_address,
+           'marriage_date'=>$request->marriage_date,
         ]);
 
         Toastr::success('Divorce Annuled Successfully', 'Updated!');
@@ -289,6 +296,8 @@ class DivorceController extends Controller
            'husband_nid'=>$request->husband_nid,
             'husband_nid_image'=>$husband_nid_image_name_path,
             'husband_name'=>$request->husband_name,
+             'husband_father_name'=>$request->husband_father_name,
+            'husband_mother_name'=>$request->husband_mother_name,
             'husband_religion'=>$request->husband_religion,
             // 'husband_dowery'=>$request->husband_dowery,
             // 'husband_dowery_paid'=>$request->husband_dowery_paid,
@@ -305,6 +314,8 @@ class DivorceController extends Controller
             'wife_nid'=>$request->wife_nid,
             'wife_nid_image'=>$wife_nid_image_name_path,
             'wife_name'=>$request->wife_name,
+            'wife_father_name'=>$request->wife_father_name,
+            'wife_mother_name'=>$request->wife_mother_name,
             'wife_religion'=>$request->wife_religion,
             'wife_birthday'=>$request->wife_birthday,
             'wife_image'=>$wife_image_name_path,

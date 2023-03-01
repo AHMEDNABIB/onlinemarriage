@@ -108,16 +108,16 @@
             <th>{{$dowanload->husband_name}}</th>
             <th>{{$dowanload->wife_name}}</th>
         </tr>
-        {{-- <tr>
+         <tr>
             <th>Father's Name*</th>
-            <th></th>
-            <th></th>
+            <th>{{$dowanload->husband_father_name}}</th>
+            <th>{{$dowanload->wife_father_name}}</th>
         </tr>
         <tr>
             <th>Mother's Name*</th>
-            <th></th>
-            <th></th>
-        </tr> --}}
+            <th>{{$dowanload->husband_mother_name}}</th>
+            <th>{{$dowanload->wife_mother_name}}</th>
+        </tr>
         <tr>
             <th>Date of Birth*</th>
             <th>{{$dowanload->husband_birthday}}</th>

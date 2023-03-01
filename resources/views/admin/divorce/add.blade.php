@@ -26,6 +26,7 @@
       </div>
        
       <div class="card-body">
+
           <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Husband</label>
             <div class="col-sm-7">
@@ -33,6 +34,28 @@
 
                   @if ($errors->has('husband_name'))
                     <span class="text-danger">{{ $errors->first('husband_name') }}</span>
+                @endif
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Husband Father Name</label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " name="husband_father_name" class="form-control" placeholder="Please Enter Full Name of the Father"  value="{{old('husband_father_name')}}" >
+
+                  @if ($errors->has('husband_father_name'))
+                    <span class="text-danger">{{ $errors->first('husband_father_name') }}</span>
+                @endif
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label"> Husband Mother Name</label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " name="husband_mother_name" class="form-control" placeholder="Please Enter Full Name of the Mother"  value="{{old('husband_mother_name')}}" >
+
+                  @if ($errors->has('husband_mother_name'))
+                    <span class="text-danger">{{ $errors->first('husband_mother_name') }}</span>
                 @endif
             </div>
         </div>
@@ -230,6 +253,25 @@
                 <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="wife_name" placeholder="Please Enter Full Name of the Husband" value="{{old('wife_name')}}">
                   @if ($errors->has('wife_name'))
                     <span class="text-danger">{{ $errors->first('wife_name') }}</span>
+                @endif
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Wife Father Name </label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="wife_father_name" placeholder="Please Enter Full Name of the Father Name" value="{{old('wife_father_name')}}">
+                  @if ($errors->has('wife_father_name'))
+                    <span class="text-danger">{{ $errors->first('wife_father_name') }}</span>
+                @endif
+            </div>
+        </div>
+          <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label"> Wife Mother Name</label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="wife_mother_name" placeholder="Please Enter Full Name of the Mother" value="{{old('wife_mother_name')}}">
+                  @if ($errors->has('wife_mother_name'))
+                    <span class="text-danger">{{ $errors->first('wife_mother_name') }}</span>
                 @endif
             </div>
         </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Divorce From</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -95,16 +95,16 @@
             <th>{{$show->husband_name}}</th>
             <th>{{$show->wife_name}}</th>
         </tr>
-        {{-- <tr>
+       <tr>
             <th>Father's Name*</th>
-            <th></th>
-            <th></th>
+            <th>{{$show->husband_father_name}}</th>
+            <th>{{$show->wife_father_name}}</th>
         </tr>
         <tr>
             <th>Mother's Name*</th>
-            <th></th>
-            <th></th>
-        </tr> --}}
+            <th>{{$show->husband_mother_name}}</th>
+            <th>{{$show->wife_mother_name}}</th>
+        </tr>
         <tr>
             <th>Date of Birth*</th>
             <th>{{$show->husband_birthday}}</th>

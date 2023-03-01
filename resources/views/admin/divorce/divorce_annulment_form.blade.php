@@ -32,7 +32,8 @@
       </div>
        
       <div class="card-body">
-          <div class="row mb-3">
+
+        <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Husband</label>
             <div class="col-sm-7">
                 <input type="text" style="max-width:350px; height: 35px; " name="husband_name" class="form-control" placeholder="Please Enter Full Name of the Husband"  value="{{ $divorce->husband_name }}" >
@@ -42,6 +43,29 @@
                 @endif
             </div>
         </div>
+
+        <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Husband</label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " name="husband_father_name" class="form-control" placeholder="Please Enter Full Name of the Husband"  value="{{ $divorce->husband_father_name }}" >
+
+                  @if ($errors->has('husband_father_name'))
+                    <span class="text-danger">{{ $errors->first('husband_father_name') }}</span>
+                @endif
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Husband</label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " name="husband_mother_name" class="form-control" placeholder="Please Enter Full Name of the Husband"  value="{{ $divorce->husband_mother_name }}" >
+
+                  @if ($errors->has('husband_mother_name'))
+                    <span class="text-danger">{{ $errors->first('husband_mother_name') }}</span>
+                @endif
+            </div>
+        </div>
+
+
           <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Religion</label>
             <div class="col-sm-7">
@@ -201,6 +225,7 @@
       </div>
 
         <div class="card-body">
+
           <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Wife </label>
             <div class="col-sm-7">
@@ -210,6 +235,28 @@
                 @endif
             </div>
         </div>
+
+         <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Father </label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="wife_father_name" placeholder="Please Enter Full Name of the Father" value="{{$divorce->wife_father_name}}">
+                  @if ($errors->has('wife_father_name'))
+                    <span class="text-danger">{{ $errors->first('wife_father_name') }}</span>
+                @endif
+            </div>
+        </div>
+
+         <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Full Name of the Mother </label>
+            <div class="col-sm-7">
+                <input type="text" style="max-width:350px; height: 35px; " class="form-control" name="wife_mother_name" placeholder="Please Enter Full Name of the Mother" value="{{$divorce->wife_mother_name}}">
+                  @if ($errors->has('wife_mother_name'))
+                    <span class="text-danger">{{ $errors->first('wife_mother_name') }}</span>
+                @endif
+            </div>
+        </div>
+
+
           <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Religion</label>
             <div class="col-sm-7">
@@ -543,6 +590,50 @@
               
             </div>
           </div>
+
+          <div class="card-header">
+       <h5 class="text-danger">Marriage Address and Date</h5>
+     </div>
+
+      <div class="card-body">
+       
+       
+
+      <div class="row mt-2">
+          <div class="col">
+            <div class=" row mb-3">
+              <label for="exampleInput4" class=" col-sm-5 form-label">Marriage Date </label>
+              <div class="col-sm-7">
+                <input type="date" style="max-width:275px; height: 35px; " class="form-control" name="marriage_date"  value="{{ $divorce->marriage_date }}">
+                  @if ($errors->has('marriage_date'))
+                    <span class="text-danger">{{ $errors->first('marriage_date') }}</span>
+                @endif
+            </div>
+              
+            </div>
+          </div>
+            
+          </div>
+          
+      </div>
+      <div class="row mt-2">
+          <div class="col">
+            <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-5 col-form-label">Address of Marriage</label>
+            <div class="col-sm-7 ">
+              <textarea rows="2" cols="47" id="multiLineInput" name="marriage_address" class="" placeholder="Address of Witness">
+                  {{$divorce->marriage_address}}
+                </textarea> 
+              
+              @if ($errors->has('marriage_address'))
+                    <span class="text-danger">{{ $errors->first('marriage_address') }}</span>
+                @endif
+            </div>    
+        </div>
+          </div>
+            
+          
+      </div>
           
       </div>
       <button type="submit" class="btn btn-primary btn-block">Submit</button>
