@@ -461,7 +461,7 @@ class DivorceController extends Controller
         //  dd($id);
          Marriage::findOrFail($id)->delete();
         Toastr::warning('Divorce Deleted Successfully', 'Deleted!');
-        return redirect()->route('admin.divorce.index');
+        return redirect()->route('admin.profile.index');
 
        
     }

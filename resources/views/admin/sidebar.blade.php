@@ -47,6 +47,29 @@
             </ul>
         </li>
         @endif
+        
+        {{-- profile --}}
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="lni lni-user"></i>
+                </div>
+                <div class="menu-title">Profile</div>
+            </a>
+            <ul>
+                <li>
+                    <a href="{{ route('admin.profile.create') }}" class="{{ request()->path() == 'admin/profile/create' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Create Profile</a>
+                </li>
+                
+                <li>
+                    <a href="{{ route('admin.profile.index') }}" class="{{ request()->path() == 'admin/profile/' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>All Profile</a>
+                </li>
+   
+            </ul>
+        </li>
+
+
+
+
 
         {{-- marriage --}}
         <li>

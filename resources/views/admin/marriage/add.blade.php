@@ -69,7 +69,7 @@
             </div>
         </div>
 
-          <div class="row mb-3">
+        <div class="row mb-3">
             <label for="inputEmail" class="col-sm-5 col-form-label">Date of Birth</label>
             <div class="col-sm-7">
                 <input type="date" style="max-width:200px; height: 35px; " name="husband_birthday" class="form-control" id="inputEmail" placeholder="date" value="{{old('husband_birthday')}}" >

@@ -15,7 +15,8 @@ use App\Http\Controllers\Admin\SubscribeController;
 use App\Http\Controllers\Admin\TVCController;
 use App\Http\Controllers\Admin\DivorceController;
 use App\Http\Controllers\Admin\MarriageController;
- use App\Models\Product;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Models\Product;
  use Illuminate\Support\Facades\Route;
 
 // Route::get('/get-sub-category', [SubCategoryController::class, 'getSubCategory']);
@@ -65,15 +66,15 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 
         //shop
-        Route::get('/shop/index', [ShopController::class, 'index'])->name('shop.index');
-        Route::get('/shop/add', [ShopController::class, 'add'])->name('shop.add');
-        Route::post('/shop/save', [ShopController::class, 'store'])->name('shop.store');
-        Route::get('/shop/edit/{id}', [ShopController::class, 'edit'])->name('shop.edit');
-        Route::post('/shop/update/{id}', [ShopController::class, 'update'])->name('shop.update');
-        Route::get('/shop/delete/{id}', [ShopController::class, 'delete'])->name('shop.delete');
-        Route::get('/shop/trash-list', [ShopController::class, 'trash_list'])->name('shop.trash_list');
-        Route::get('/shop/restore/{id}', [ShopController::class, 'restore'])->name('shop.restore');
-        Route::get('/shop/forceDelete/{id}', [ShopController::class, 'forceDelete'])->name('shop.forceDelete');
+        // Route::get('/shop/index', [ShopController::class, 'index'])->name('shop.index');
+        // Route::get('/shop/add', [ShopController::class, 'add'])->name('shop.add');
+        // Route::post('/shop/save', [ShopController::class, 'store'])->name('shop.store');
+        // Route::get('/shop/edit/{id}', [ShopController::class, 'edit'])->name('shop.edit');
+        // Route::post('/shop/update/{id}', [ShopController::class, 'update'])->name('shop.update');
+        // Route::get('/shop/delete/{id}', [ShopController::class, 'delete'])->name('shop.delete');
+        // Route::get('/shop/trash-list', [ShopController::class, 'trash_list'])->name('shop.trash_list');
+        // Route::get('/shop/restore/{id}', [ShopController::class, 'restore'])->name('shop.restore');
+        // Route::get('/shop/forceDelete/{id}', [ShopController::class, 'forceDelete'])->name('shop.forceDelete');
 
         // Divorce
 
@@ -124,6 +125,10 @@ Route::prefix('admin')->name('admin.')->group(function(){
          Route::get('marriage/pdf', [MarriageController::class, 'export_marriage_pdf'])->name('marriage.pdf');
 
          Route::get('marriage/rules', [MarriageController::class, 'rules'])->name('marriage.rules');
+
+
+        //   Route::resource('profile', [ProfileController::class]);
+         Route::resource('profile', ProfileController::class,);
 
 
     });

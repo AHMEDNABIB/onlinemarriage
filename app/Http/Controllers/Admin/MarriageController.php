@@ -207,6 +207,8 @@ class MarriageController extends Controller
         $husband_age = (int)$diff1->format('%y');
         $wife_age = (int)$diff2->format('%y');
 
+        // dd($husband_age,$wife_age)
+
 
         //  Email Notification
         $email1 = $request->husband_email;
