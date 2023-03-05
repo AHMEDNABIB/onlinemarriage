@@ -85,14 +85,18 @@
                     </div> 
                 </div>
                 <div class="col"> {{$show->religion}}</div>
+
+
                 <div class="col"> 
                      <div class="d-flex justify-content-start mx-5 ">
                         <p class="font-weight-bold">
-                        Martial Status
+                        Gender
                         </p>
                     </div> 
                 </div>
-                <div class="col">  {{$show->status}}</div>
+                <div class="col"> <p class="text-uppercase"> {{$show->gender}}</p></div>
+
+              
             </div>
             <div class="row " >
                 <div class="col"> 
@@ -102,7 +106,7 @@
                         </p>
                     </div> 
                 </div>
-                <div class="col">  {{$show->height}}</div>
+                <div class="col">  {{$show->height}} Feet</div>
                 <div class="col"> 
                      <div class="d-flex justify-content-start mx-5 ">
                         <p class="font-weight-bold">
@@ -122,8 +126,18 @@
                 </div>
                 <div class="col"> <p class="text-uppercase"> {{$show->blood_group}}</p></div>
 
-                <div class="col"></div>
-                <div class="col"></div>
+
+                  <div class="col"> 
+                     <div class="d-flex justify-content-start mx-5 ">
+                        <p class="font-weight-bold">
+                        Martial Status
+                        </p>
+                    </div> 
+                </div>
+                <div class="col">  {{$show->status}}</div>
+
+                
+                
                
             </div>
            

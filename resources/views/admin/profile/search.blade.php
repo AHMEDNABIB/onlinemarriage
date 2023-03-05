@@ -10,7 +10,7 @@
     <div class="page-content">
         <!-- ALL Category -->
         <div class="row">
-            <div class="col-xl-9 mx-auto">
+            <div class="col-xl-12 mx-auto">
             <div class="card radius-10">
                 <div class="card-body">
                     <div class="card-title d-flex align-items-center">
@@ -19,12 +19,38 @@
                     </div>
                     <hr/>
              
-                    
-                   <form action="{{ route('admin.profile.search') }}" method="GET" class="d-flex">
-          <input class="form-control me-2" type="search" name="name" placeholder="enter Name" aria-label="Search">
-          <input class="form-control me-2" type="search" name="age" placeholder="Age" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+               
+
+        <section class="search-sec">
+    <div class="container">
+        <form action="{{ route('admin.profile.search') }}" method="GET"  novalidate="novalidate">
+            <div class="row mb-5">
+                <div class="col-lg-12">
+                    <div class="row d-flex  align-items-center justify-content-center w-150 ">
+                        
+                        <div class="col-lg-2 col-md-2 col-sm-12 p-0 mx-1">
+                            <input type="text" class="form-control search-slt" placeholder="Enter Age" name="age" >
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-12 p-0 mx-1">
+                            <input type="text" class="form-control search-slt" placeholder="Enter Height"  name="height">
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-12 p-0 mx-1">
+                            <select class="form-control search-slt"  name="gender">
+                                <option value="">I Am Looking for</option>
+                              
+                                 <option value="male">Male</option>
+                                 <option value="female">Female</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-12 p-0 mx-1">
+                            <button type="submit" class="btn btn-danger wrn-btn">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
+    </div>
+</section>
 
                     <div class="table-responsive">
 

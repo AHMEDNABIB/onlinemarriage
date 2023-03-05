@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use App\Http\Requests\ProfileRequest;
+use Illuminate\Support\Facades\DB;
 use Toastr;
 use Illuminate\Http\Request;
 
@@ -13,18 +14,40 @@ class ProfileController extends Controller
 
     public function search(Request $request){
 
-       $name = $request->input('name');
+      
        $age = $request->input('age');
+       $height = $request->input('height');
+       $gender = $request->input('gender');
 
        $data=Profile::get();
 
-       dd($data);
+    //    dd($data);
+      if($age !=null ){
+       $data = Profile::where('age', $age)
+            ->orderBy('reg_no', 'desc')
+            ->get();
 
-    //    $data = Profile::where('name', 'like' , "%$name%")
-    //         ->orWhere('age', 'like', "%$age%")
-    //         // ->orWhere('weight', 'like', "%$query%")
-    //         ->orderBy('reg_no', 'desc')
-    //         ->get();
+      }
+
+      
+
+      if($height !=null ){
+       $data = Profile::where('height',$height)
+            ->orderBy('reg_no', 'desc')
+            ->get();
+
+      }
+
+        if($gender !=null ){
+       $data = Profile::where('gender',$gender)
+            ->orderBy('reg_no', 'desc')
+            ->get();
+
+      }
+
+            
+
+          
 
         return view('admin.profile.search', compact('data'));
     }
