@@ -10,6 +10,24 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+
+    public function search(Request $request){
+
+       $name = $request->input('name');
+       $age = $request->input('age');
+
+       $data=Profile::get();
+
+       dd($data);
+
+    //    $data = Profile::where('name', 'like' , "%$name%")
+    //         ->orWhere('age', 'like', "%$age%")
+    //         // ->orWhere('weight', 'like', "%$query%")
+    //         ->orderBy('reg_no', 'desc')
+    //         ->get();
+
+        return view('admin.profile.search', compact('data'));
+    }
     /**
      * Display a listing of the resource.
      *

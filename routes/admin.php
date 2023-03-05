@@ -78,8 +78,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
         // Divorce
 
-         Route::get('divorce/dowanload', [DivorceController::class, 'export_divorce_check'])->name('divorce.dowanload');
-         Route::get('divorce/pdf', [DivorceController::class, 'export_divorce_pdf'])->name('divorce.pdf');
+        Route::get('divorce/dowanload', [DivorceController::class, 'export_divorce_check'])->name('divorce.dowanload');
+        Route::get('divorce/pdf', [DivorceController::class, 'export_divorce_pdf'])->name('divorce.pdf');
 
         Route::get('divorce/add', [DivorceController::class, 'add'])->name('divorce.add');
         Route::get('divorce/save', [DivorceController::class, 'save'])->name('divorce.save');
@@ -127,7 +127,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
          Route::get('marriage/rules', [MarriageController::class, 'rules'])->name('marriage.rules');
 
 
-        //   Route::resource('profile', [ProfileController::class]);
+        //  Route::get('/profile/search/index', [ProfileController::class, 'search_index'])->name('search_index');
+         Route::get('/profile/search', [ProfileController::class, 'search'])->name('profile.search');
          Route::resource('profile', ProfileController::class,);
 
 

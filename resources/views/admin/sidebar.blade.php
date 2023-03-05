@@ -59,6 +59,10 @@
                 <li>
                     <a href="{{ route('admin.profile.create') }}" class="{{ request()->path() == 'admin/profile/create' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Create Profile</a>
                 </li>
+
+                <li>
+                    <a href="{{ route('admin.profile.search') }}" class="{{ request()->path() == 'admin/profile/search' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>search Profile</a>
+                </li>
                 
                 <li>
                     <a href="{{ route('admin.profile.index') }}" class="{{ request()->path() == 'admin/profile/' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>All Profile</a>
