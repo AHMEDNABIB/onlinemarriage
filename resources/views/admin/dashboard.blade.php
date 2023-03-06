@@ -8,7 +8,7 @@
 @section('content')
 
 <!--start page wrapper -->
-<div class="page-wrapper">
+{{-- <div class="page-wrapper">
     <div class="page-content">
 
             <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
@@ -177,7 +177,20 @@
            </div>
             <!--End Row-->
     </div>
+</div> --}}
+
+
+<!--start page wrapper -->
+<div class="page-wrapper">
+    <div class="page-content" style="text-align:center; background-color:powderblue;">
+
+    <div><h1 style="color:blue;">Welcome to the website</h1></div><br><br>
+    <div><h3>This Website is made to do proper marriage and Divorce easily</h3></div><br>
+    <div><h4>Hope you enjoy all its features.</h4></div>
+            <!--End Row-->
+    </div>
 </div>
+<!--end page wrapper -->
 <!--end page wrapper -->
 
 @endsection

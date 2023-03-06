@@ -81,7 +81,7 @@
         </div>
 
           <div class="row mb-3">
-            <label for="" class="col-sm-5 col-form-label">Dowery</label>
+            <label for="" class="col-sm-5 col-form-label">Dower Money</label>
             <div class="col-sm-7">
                 <input type="text" style="max-width:200px; height: 35px; " name="husband_dowery" class="form-control"  placeholder="Dowery Money" value="{{old('husband_dowery')}}" >
                   @if ($errors->has('husband_dowery'))
@@ -90,7 +90,7 @@
             </div>
         </div>
           <div class="row mb-3">
-            <label for="exampleInput4" class="col-sm-5 form-label">Dowery Paid</label>
+            <label for="exampleInput4" class="col-sm-5 form-label">Dower Money Paid</label>
             <div class="col-sm-7">
               <input type="text" style="max-width:200px; height: 35px; " class="form-control" id="exampleInput4" name="husband_dowery_paid" placeholder="Dowery Paid " value="{{old('husband_dowery_paid')}}" />
                 @if ($errors->has('husband_dowery_paid'))
@@ -100,7 +100,7 @@
         </div>
 
         <div class=" row mb-3">
-              <label for="exampleInput4" class=" col-sm-5 form-label">Dowery Remain</label>
+              <label for="exampleInput4" class=" col-sm-5 form-label">Dower Money Remain</label>
               <div class="col-sm-7">
                 <input type="text" style="max-width:200px; height: 35px; " class="form-control col-sm-8" id="exampleInput4" name="husband_dowery_remain" placeholder="Husband Dowery Remain" value="{{old('husband_dowery_remain')}}" />
                   @if ($errors->has('husband_dowery_remain'))
@@ -732,7 +732,7 @@
       <div class="row mt-2">
           <div class="col">
             <div class="row mb-3">
-            <label for="inputEmail" class="col-sm-5 col-form-label">Address of Marriage</label>
+            <label for="inputEmail" class="col-sm-5 col-form-label">Address of Marriage Place</label>
             <div class="col-sm-7 ">
               <textarea rows="2" cols="47" id="multiLineInput" name="marriage_address" class="" placeholder="Address of Witness">
                  {{old('marriage_address')}}

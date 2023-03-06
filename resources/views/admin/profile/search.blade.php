@@ -24,22 +24,22 @@
         <section class="search-sec">
     <div class="container">
         <form action="{{ route('admin.profile.search') }}" method="GET"  novalidate="novalidate">
-            <div class="row mb-5">
+            <div class="row mb-5 mt-4">
                 <div class="col-lg-12">
                     <div class="row d-flex  align-items-center justify-content-center w-150 ">
                         
                         <div class="col-lg-2 col-md-2 col-sm-12 p-0 mx-1">
-                            <input type="text" class="form-control search-slt" placeholder="Enter Age" name="age" >
+                            <input type="text" class="form-control search-slt" value="{{Request::get('age')}}" placeholder="Enter Age" name="age" >
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-12 p-0 mx-1">
-                            <input type="text" class="form-control search-slt" placeholder="Enter Height"  name="height">
+                            <input type="text" class="form-control search-slt" placeholder="Enter Height" value="{{Request::get('height')}}"  name="height">
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-12 p-0 mx-1">
                             <select class="form-control search-slt"  name="gender">
                                 <option value="">I Am Looking for</option>
                               
-                                 <option value="male">Male</option>
-                                 <option value="female">Female</option>
+                                 <option value="male" {{Request::get('gender') == 'male' ? 'selected' : ''}}>Male</option>
+                                 <option value="female" {{Request::get('gender') == 'female' ? 'selected' : ''}}>Female</option>
                             </select>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-12 p-0 mx-1">

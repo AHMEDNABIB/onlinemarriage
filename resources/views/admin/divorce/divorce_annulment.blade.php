@@ -20,7 +20,7 @@
 									<div class="card-title d-flex align-items-center">
 										<div><i class="bx bxs-user me-1 font-22 text-info"></i>
 										</div>
-										<h5 class="mb-0 text-info">Divorce Annulmnet</h5>
+										<h5 class="mb-0 text-info">Divorce Annulment</h5>
 									</div>
 									<hr/>
 									<div class="row mb-3">

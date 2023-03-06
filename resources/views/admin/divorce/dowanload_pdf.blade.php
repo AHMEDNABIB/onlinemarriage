@@ -78,7 +78,7 @@
        
     <table class="">
         <tr  >
-            <th class="align-middle" width="20% ">Complete Address of Marriage*</th>
+            <th class="align-middle" width="20% ">Complete Address of Marriage Place *</th>
             <td class="align-middle" width="40%">{{$dowanload->marriage_address}}</td>
             <td class="align-middle"  height="200px">
                 <div class="image">
@@ -216,7 +216,7 @@
             <td colspan="3">
                 <p style="text-align:justify;">
                     It is certified that the information provided above is to the best of my knowledge and belief and nothing has been concealed therein. It is also
-                    certified that this marriage has not been registered anywhere in Bangladesh/Abroad and we are not related to each other within the degree of prohibited
+                    certified that this divorce has not been registered anywhere in Bangladesh/Abroad and we are not related to each other within the degree of prohibited
                     relationship and neither of us is lunatic. We shall be liable for action as per the law, if we have violated any provision of any law of the land.
                 </p>
 

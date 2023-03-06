@@ -61,7 +61,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('admin.profile.search') }}" class="{{ request()->path() == 'admin/profile/search' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>search Profile</a>
+                    <a href="{{ route('admin.profile.search') }}" class="{{ request()->path() == 'admin/profile/search' ? 'bg-dark':'' }}"><i class="bx bx-right-arrow-alt"></i>Search Profile</a>
                 </li>
                 
                 <li>
@@ -181,13 +181,13 @@
         </li>
 
         {{-- Settings --}}
-        <li>
+        {{-- <li>
             <a href="{{ route('admin.settings') }}" class="{{ request()->path() == 'admin/settings' ? 'bg-dark':'' }}">
                 <div class="parent-icon"><i class="bx bx-cog"></i>
                 </div>
                 <div class="menu-title">Settings</div>
             </a>
-        </li>
+        </li> --}}
 
 
     </ul>
